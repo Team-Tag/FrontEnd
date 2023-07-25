@@ -1,13 +1,19 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-
-  </nav>
-  <h3>하이</h3>
-  <h3>대성 브런치</h3>
+  <PageHeader/>
   <router-view/>
+  <Footer/>
 </template>
+<script>
+import PageHeader from '@/components/Header.vue'
+import Footer from '@/components/Footer.vue'
+
+export default{
+  components : {
+    PageHeader,
+    Footer,
+  },
+}
+</script>
 
 <style>
 #app {
