@@ -80,9 +80,9 @@
 						<div style="font-size:35px">&lt;로그인/&gt;</div>
 						<div class="login-porm">
 							<p>이메일(아이디)</p>
-							<input type="text" name="userid">
+							<input type="text" name="userid" v-model="userid">
 							<p>비밀번호</p>
-							<input type="password" name="passwd">
+							<input type="password" name="passwd" v-model="passwd">
 							<input type="submit" value="로그인" style="color : white; 
 									background-color : green; border: 0.5px solid green;">
 							<div>
