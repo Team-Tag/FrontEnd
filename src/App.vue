@@ -5,6 +5,7 @@
 
   </nav>
   <h3>하이</h3>
+  <h3>대성 브런치</h3>
   <router-view/>
 </template>
 
