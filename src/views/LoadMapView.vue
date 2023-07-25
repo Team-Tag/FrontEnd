@@ -1,10 +1,22 @@
 <template>
-  <div class="LoadMap">
-    <div class="LoadMap-Content">
-      <h1>로드맵 페이지입니다</h1>
+    <PageHeader/>
+    <div class="LoadMap">
+        <div class="LoadMap-Content">
+        <h1>로드맵 페이지입니다</h1>
+        </div>
     </div>
-  </div>
+    <PageFooter/>
 </template>
+<script>
+import PageHeader from '@/components/Header.vue'
+import PageFooter from '@/components/Footer.vue'
+export default {
+  components :{
+    PageHeader,
+    PageFooter,
+  }
+};
+</script>
 
 <style scoped>
   .LoadMap-Content{

@@ -1,17 +1,17 @@
 <template>
-  <PageHeader/>
+  <!-- <PageHeader/> -->
   <router-view/>
-  <PageFooter/>
+  <!-- <PageFooter/> -->
 </template>
 <script>
-import PageHeader from '@/components/Header.vue'
-import PageFooter from '@/components/Footer.vue'
+// import PageHeader from '@/components/Header.vue'
+// import PageFooter from '@/components/Footer.vue'
 
 export default{
-  components : {
-    PageHeader,
-    PageFooter,
-  },
+  // components : {
+  //   PageHeader,
+  //   PageFooter,
+  // },
 }
 </script>
 

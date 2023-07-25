@@ -1,6 +1,6 @@
 <template>
+    <PageHeader/>
     <div id = "SignUp">
-        <Header/>
         <div class="signup-content">
         <div class="menu-title-wrapper">
             <h2 class="menu-title">&#60;회원가입&#47;&#62;</h2>
@@ -56,8 +56,18 @@
         </div>
         </div>
     </div>
-    <FooterDefault/>
+    <PageFooter/>
 </template>
+<script>
+import PageHeader from '@/components/Header.vue'
+import PageFooter from '@/components/Footer.vue'
+export default {
+  components :{
+    PageHeader,
+    PageFooter,
+  }
+};
+</script>
 
 <style scoped>
   #SignUp{

@@ -124,7 +124,7 @@ export default {
     text-align: center;
     z-index: 101;
     height: 70px;
-    background-color: white;
+    /* background-color: white; */
 }
 .header-logo{
     display: flex;
