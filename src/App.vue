@@ -1,12 +1,19 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-
-  </nav>
-  <h3>하이</h3>
+  <!-- <PageHeader/> -->
   <router-view/>
+  <!-- <PageFooter/> -->
 </template>
+<script>
+// import PageHeader from '@/components/Header.vue'
+// import PageFooter from '@/components/Footer.vue'
+
+export default{
+  // components : {
+  //   PageHeader,
+  //   PageFooter,
+  // },
+}
+</script>
 
 <style>
 #app {
@@ -16,7 +23,9 @@
   text-align: center;
   color: #2c3e50;
 }
-
+*{
+  margin : 0px;
+}
 nav {
   padding: 30px;
 }

@@ -12,6 +12,7 @@
                 <form class = "form">
                     <div class = "input-form">
                         <p>이메일(아이디)</p>
+<<<<<<< HEAD
                         <input type = "email" v-model="user.email" placeholder="로그인시, 사용할 이메일을 입력해주세요">
                     </div>
                     <div class = "input-form">
@@ -29,11 +30,31 @@
                     <div class = "input-form">
                         <p>생년월일</p>
                         <input type = "text" v-model="birthDate" placeholder="생년월일을 입력해주세요">
+=======
+                        <input type = "email" placeholder="로그인시, 사용할 이메일을 입력해주세요">
+                    </div>
+                    <div class = "input-form">
+                        <p>비밀번호</p>
+                        <input type = "text" placeholder="영/특수문자/숫자를 조합하여 8자리 이상 입력해주세요">
+                    </div>
+                    <div class = "input-form">
+                        <p>비밀번호 확인</p>
+                        <input type = "text" placeholder="비밀번호를 한번 더 입력해주세요">
+                    </div>
+                    <div class = "input-form">
+                        <p>이름(실명)</p>
+                        <input type = "text" placeholder="본인의 실명을 입력해주세요">
+                    </div>
+                    <div class = "input-form">
+                        <p>생년월일</p>
+                        <input type = "text" placeholder="생년월일을 입력해주세요">
+>>>>>>> origin/kim-branch
                         
                     </div>
                     <div class = "input-form">
                         <p>성별</p>
                         <div class="radio">
+<<<<<<< HEAD
                             <input type = "radio" id = "gander" value = "man" name = "man" v-model="gender">
                             <label for = "man">남자</label>
                         </div>
@@ -44,13 +65,31 @@
                         <div class="radio">
                             <input type = "radio" id = "man" value = "private" name = "private" v-model="gender">
                             <label for = "private">비공개</label>
+=======
+                            <input type = "radio" id = "man" value = "man" name = "sex">
+                            <label for = "man">남자</label>
+                        </div>
+                        <div class="radio">
+                            <input type = "radio" id = "man" value = "man" name = "sex">
+                            <label for = "man">여자</label>
+                        </div>
+                        <div class="radio">
+                            <input type = "radio" id = "man" value = "man" name = "sex">
+                            <label for = "man">비공개</label>
+>>>>>>> origin/kim-branch
                         </div>
                     </div>
                     <div class = "input-form">
                         <p>Tag팀 코드</p>
+<<<<<<< HEAD
                         <input type = "text" v-model="teamCode" placeholder="팀장님께 받은 팀코드를 입력해주세요 ">
                     </div>
                     <input class = "submit" type="button" value="회원가입" @click="addUser">
+=======
+                        <input type = "text" placeholder="팀장님께 받은 팀코드를 입력해주세요 ">
+                    </div>
+                    <input class = "submit" type="submit" value="회원가입">
+>>>>>>> origin/kim-branch
                 </form>
             </div>
         </div>
@@ -61,6 +100,7 @@
 <script>
 import PageHeader from '@/components/Header.vue'
 import PageFooter from '@/components/Footer.vue'
+<<<<<<< HEAD
 // import axios from 'axios'
 export default {
     name : "SignUp",
@@ -93,6 +133,13 @@ export default {
             //     })
         }
     }
+=======
+export default {
+  components :{
+    PageHeader,
+    PageFooter,
+  }
+>>>>>>> origin/kim-branch
 };
 </script>
 
