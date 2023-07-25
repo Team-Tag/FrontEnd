@@ -10,7 +10,8 @@
 
 <script>
 export default {
-  name: 'FooterDefault',
+  name: 'PageFooter',
+
 };
 </script>
 

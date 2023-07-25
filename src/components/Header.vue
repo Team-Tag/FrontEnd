@@ -85,7 +85,7 @@
 
 <script>
 
-export default ({
+export default {
     name: 'PageHeader',
     data(){
         return{
@@ -97,12 +97,8 @@ export default ({
             this.isModalOpen = false;
         },
     },
-    props: {
-    headerClass: String, // 헤더의 클래스를 받아오는 프로퍼티
-    headerLogo: String   // 헤더의 로고를 받아오는 프로퍼티
-  },
 
-})
+};
 </script>
 
 <style scoped>

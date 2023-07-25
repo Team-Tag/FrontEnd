@@ -1,16 +1,16 @@
 <template>
   <PageHeader/>
   <router-view/>
-  <Footer/>
+  <PageFooter/>
 </template>
 <script>
 import PageHeader from '@/components/Header.vue'
-import Footer from '@/components/Footer.vue'
+import PageFooter from '@/components/Footer.vue'
 
 export default{
   components : {
     PageHeader,
-    Footer,
+    PageFooter,
   },
 }
 </script>
@@ -23,7 +23,9 @@ export default{
   text-align: center;
   color: #2c3e50;
 }
-
+*{
+  margin : 0px;
+}
 nav {
   padding: 30px;
 }
