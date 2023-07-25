@@ -29,7 +29,7 @@ export default {
   .screen1{
     width : 100%;
     height : 1024px;
-    background-color: yellow;
+    background-color: rgb(52, 76, 129);
   }
   .screen2{
     width: 100%;

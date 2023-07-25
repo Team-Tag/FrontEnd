@@ -1,58 +1,71 @@
 <template>
-    <header class = "main-header">
-        <router-link to='/' class = "header-logo">
+    <header :class= "isHomePage ? 'home-header' : 'default-header'">
+        <router-link to='/' class = "header-logo" v-if = "isHomePage">
+            <img src = "@/assets/LogoWhite.png">
+        </router-link>
+        <router-link to='/' class = "header-logo" v-else >
             <img src = "@/assets/LogoBlack.png">
         </router-link>
         <div class = "header-menu">
-            <div class = "header-main-menu-item" >
+            <div :class= "isHomePage ? 'home-menu-item' : 'menu-item'" >
                 <router-link to='/' >
-                    <div class="menu-icon"><img src = "@/assets/Home.svg" ></div>
+                    <div :class= "isHomePage ? 'home-menu-icon' :'menu-icon'">
+                        <img src = "@/assets/Home.svg" >
+                    </div>
                     <span>홈</span>
                 </router-link>
             </div>
-            <div class = "header-main-menu-item">
+            <div :class= "isHomePage ? 'home-menu-item' : 'menu-item'">
                 <router-link to='/Message'>
-                    <div class="menu-icon"><img src = "@/assets/message.svg" ></div>
+                    <div :class= "isHomePage ? 'home-menu-icon' :'menu-icon'">
+                        <img src = "@/assets/message.svg" >
+                    </div>
                     <span>메시지</span>
                 </router-link>
             </div>
-            <div class = "header-main-menu-item">
+            <div :class= "isHomePage ? 'home-menu-item' : 'menu-item'">
                 <router-link to='/'>
-                    <div class="menu-icon"><img src = "@/assets/alarm.svg" ></div>
+                    <div :class= "isHomePage ? 'home-menu-icon' :'menu-icon'">
+                        <img src = "@/assets/alarm.svg" >
+                    </div>
                     <span>알림</span>
                 </router-link>
             </div>
-            <div class = "header-main-menu-item">
+            <div :class= "isHomePage ? 'home-menu-item' : 'menu-item'">
                 <router-link to = '/LoadMap'>
-                    <div class="menu-icon"><img src = "@/assets/LoadMap.svg" ></div>
+                    <div :class= "isHomePage ? 'home-menu-icon' :'menu-icon'">
+                        <img src = "@/assets/LoadMap.svg">
+                    </div>
                     <span>로드맵</span>
                 </router-link>
             </div>
-            <div class = "header-main-menu-item">
+            <div :class= "isHomePage ? 'home-menu-item' : 'menu-item'">
                 <router-link to ='/Board'>
-                    <div class="menu-icon"><img src = "@/assets/Q&A.svg" ></div>
+                    <div :class= "isHomePage ? 'home-menu-icon' :'menu-icon'">
+                        <img src = "@/assets/Q&A.svg" >
+                    </div>
                     <span>게시판</span>
                 </router-link>
             </div>
-             <div class = "header-main-menu-item">
+             <div :class= "isHomePage ? 'home-menu-item' : 'menu-item'">
                 <router-link to = '/Member'>
-                    <div class="menu-icon">
+                    <div :class= "isHomePage ? 'home-menu-icon' :'menu-icon'">
                         <i class="fa-solid fa-users"></i>
                     </div>
                     <span>멤버</span>
                 </router-link>
             </div>
-             <div class = "header-main-menu-item">
+             <div :class= "isHomePage ? 'home-menu-item' : 'menu-item'">
                 <router-link to = '/Schedule'>
-                    <div class="menu-icon">
+                    <div :class= "isHomePage ? 'home-menu-icon' :'menu-icon'">
                         <i class="fa-solid fa-calendar-days"></i>
                     </div>
                     <span>일정</span>
                 </router-link>
             </div>
-             <div class = "header-main-menu-item">
+             <div :class= "isHomePage ? 'home-menu-item' : 'menu-item'">
                 <div @click="isModalOpen=true">
-                    <div class="menu-icon">
+                    <div :class= "isHomePage ? 'home-menu-icon' :'menu-icon'">
                         <i class="fa-solid fa-circle-user"></i>
                     </div>
                     <span>로그인</span>
@@ -97,6 +110,12 @@ export default {
             this.isModalOpen = false;
         },
     },
+    computed: {
+        isHomePage() {
+            // 현재 페이지가 홈 페이지인지 확인
+            return this.$route.path === '/';
+            },
+    },
 
 };
 </script>
@@ -114,7 +133,7 @@ export default {
     z-index: 101;
     height: 70px;
 }
-.main-header{
+.home-header{
     top: 0;
     left: 0;
     position: fixed;
@@ -124,8 +143,20 @@ export default {
     text-align: center;
     z-index: 101;
     height: 70px;
-    /* background-color: white; */
 }
+.default-header{
+    top: 0;
+    left: 0;
+    position: fixed;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    z-index: 101;
+    height: 70px;
+    background-color: white;
+}
+
 .header-logo{
     display: flex;
     align-items: center;
@@ -136,13 +167,13 @@ export default {
     height : 60px;
 }
 
-.main-menu-icon i{
+.home-menu-icon i{
     font-size: 25px;
     color : white;
     margin-top: 3px;
     margin-bottom: 7px;
 }
-.main-menu-icon img{
+.home-menu-icon img{
     width:30px;
     height: 30px; 
     filter: brightness(0) invert(1); 
@@ -162,21 +193,22 @@ export default {
     display : flex;
     padding-top : 5px;
 }
-.header-menu-item{
+.menu-item{
     width: 80px;
     padding: 3px 0px 3px 0px;
     margin-top: 2px;
     margin-bottom: 3px;
     cursor: pointer;
 }
-.header-main-menu-item{
+.home-menu-item{
     width: 80px;
     padding: 3px 0px 3px 0px;
     margin-top: 2px;
     margin-bottom: 3px;
     cursor: pointer;
 }
-.header-menu-item span{
+
+.home-menu-item span{
     font-size: 14px;
     font-weight: 500;
     line-height: 1.5;
@@ -185,7 +217,7 @@ export default {
     position: relative;
     font-family: 'Black Han Sans', sans-serif;
 }
-.header-main-menu-item span{
+.menu-item span{
     font-size: 14px;
     font-weight: 500;
     line-height: 1.5;
