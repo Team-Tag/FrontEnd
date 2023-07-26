@@ -5,7 +5,13 @@
         <h1>&#60;Team Tag Member&#47;&#62;</h1>
         </div>
         <div class="CardBundle">
-            <div class="MemberCard"><div class="memberimage"></div></div>
+            <div class="MemberCard">
+              <img src="@/assets/맹구.jpg" alt="">
+              <div class="memberimage">
+                <span id="memberName">맹구</span>
+                <p>나는 돌</p>
+              </div>
+            </div>
             <div class="MemberCard"><div class="memberimage"></div></div>
             <div class="MemberCard"><div class="memberimage"></div></div>
             <div class="MemberCard"><div class="memberimage"></div></div>
@@ -39,12 +45,12 @@ export default {
     justify-content: center;
   }
   .CardBundle{
-    background-color: beige;
+   
     width: 100vw; margin-top:3%;
      padding: 2%; 
     display: flex;
     flex-wrap: wrap;
-    justify-content:left;
+    justify-content:flex-start;
     flex:space-around;
     
     
@@ -53,8 +59,18 @@ export default {
     width: 15vw; height:20vw;
     background-color: white;
     margin: 20px;
+    border-radius: 20px;
+    box-shadow: 4px 4px 4px gray;
   }
-  .memberimage{
-   
+  #memberName{
+      padding: 10px;
+      font-weight: 600;
+
   }
+  .MemberCard img{
+    margin-top: 10px;
+    width: 10vw;
+    border-radius: 5px;
+  }
+  
 </style>
