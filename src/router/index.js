@@ -8,6 +8,8 @@ import Message from '../views/MessageView.vue'
 import Schedule from '../views/ScheduleView.vue'
 import FrontEnd from '../views/FrontEnd-LM.vue'
 import BackEnd from '../views/BackEnd-LM.vue'
+import EditBoard from '../views/EditBoard.vue'
+
 const routes = [
   {
     path: '/',
@@ -35,9 +37,19 @@ const routes = [
     component : FrontEnd
   },
   {
+    path : '/LoadMap/FrontEnd/EditBoard',
+    name : 'EditBoardFrontEnd',
+    component : EditBoard,
+  },
+  {
     path : '/LoadMap/BackEnd',
     name : 'BackEnd',
     component : BackEnd
+  },
+  {
+    path : '/LoadMap/BackEnd/EditBoard',
+    name : 'EditBoardBackEnd',
+    component : EditBoard,
   },
   {
     path : '/Member',

@@ -1,17 +1,10 @@
 <template>
-  <!-- <PageHeader/> -->
   <router-view/>
-  <!-- <PageFooter/> -->
 </template>
 <script>
-// import PageHeader from '@/components/Header.vue'
-// import PageFooter from '@/components/Footer.vue'
 
 export default{
-  // components : {
-  //   PageHeader,
-  //   PageFooter,
-  // },
+
 }
 </script>
 
@@ -26,16 +19,8 @@ export default{
 *{
   margin : 0px;
 }
-nav {
-  padding: 30px;
-}
 
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
+a{
+  text-decoration: none;
 }
 </style>
