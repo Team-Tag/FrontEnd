@@ -6,6 +6,8 @@ import LoadMap from '../views/LoadMapView.vue'
 import Member from '../views/MemberView.vue'
 import Message from '../views/MessageView.vue'
 import Schedule from '../views/ScheduleView.vue'
+import FrontEnd from '../views/FrontEnd-LM.vue'
+import BackEnd from '../views/BackEnd-LM.vue'
 const routes = [
   {
     path: '/',
@@ -26,6 +28,16 @@ const routes = [
     path : '/LoadMap',
     name : 'LoadMap',
     component : LoadMap
+  },
+  {
+    path : '/LoadMap/FrontEnd',
+    name : 'FrontEnd',
+    component : FrontEnd
+  },
+  {
+    path : '/LoadMap/BackEnd',
+    name : 'BackEnd',
+    component : BackEnd
   },
   {
     path : '/Member',
