@@ -2,6 +2,7 @@
     <PageHeader/>
     <div id = "SignUp">
         <div class="signup-content">
+
         <div class="menu-title-wrapper">
             <h2 class="menu-title">&#60;회원가입&#47;&#62;</h2>
         </div>
@@ -52,8 +53,61 @@
                     </div>
                     <input class = "submit" type="button" value="회원가입" @click="addUser">
                 </form>
+
+            <div class="menu-title-wrapper">
+                <h2 class="menu-title">&#60;회원가입&#47;&#62;</h2>
             </div>
-        </div>
+            <div id = "body">
+                <div class = "content">
+                    <h2>Tag팀 계정으로 사용할 이메일<br>
+                    주소와 회원정보를 입력해주세요 </h2>
+                    <form @submit.prevent="submitForm">
+                        <div class = "input-form">
+                            <p>이메일(아이디)</p>
+                            <input type = "email" placeholder="로그인시, 사용할 이메일을 입력해주세요"  v-model="user.email">
+                        </div>
+                        <div class = "input-form">
+                            <p>비밀번호</p>
+                            <input type = "password" placeholder="영/특수문자/숫자를 조합하여 8자리 이상 입력해주세요" v-model="user.password">
+                        </div>
+                        <div class = "input-form">
+                            <p>비밀번호 확인</p>
+                            <input type = "password" placeholder="비밀번호를 한번 더 입력해주세요" @input="checkPassword" v-model="user.repassword">
+                            <p>{{user.nopassword}}</p>
+                        </div>
+                        <div class = "input-form">
+                            <p>이름(실명)</p>
+                            <input type = "text" placeholder="본인의 실명을 입력해주세요" v-model="user.name">
+                        </div>
+                        <div class = "input-form">
+                            <p>생년월일</p>
+                            <input type = "text" placeholder="생년월일을 입력해주세요(ex.2000.01.01)" v-model="user.birth">
+                            
+                        </div>
+                        <div class = "input-form">
+                            <p>성별</p>
+                            <div class="radio">
+                                <input type = "radio" id = "man" value = "man" name = "gender" v-model="user.gender">
+                                <label for = "man">남자</label>
+                            </div>
+                            <div class="radio">
+                                <input type = "radio" id = "woman" value = "woman" name = "gender" v-model="user.gender">
+                                <label for = "woman">여자</label>
+                            </div>
+                            <div class="radio">
+                                <input type = "radio" id = "notgender" value = "notgender" name = "gender" v-model="user.gender">
+                                <label for = "manotgendern">비공개</label>
+                            </div>
+                        </div>
+                        <div class = "input-form">
+                            <p>Tag팀 코드</p>
+                            <input type = "text" placeholder="팀장님께 받은 팀코드를 입력해주세요 " v-model="user.teamcode">
+                        </div>
+                        <input class = "submit" type="submit" value="회원가입" @submit.prevent="submitData" ><!--이거누르면 지금까지 입력한 내용 검사(빠진내용 있는지 확인 후 ) 저장된 변수들 axios로 post -->
+                    </form>
+                </div>
+
+            </div>
         </div>
     </div>
     <PageFooter/>
@@ -61,6 +115,7 @@
 <script>
 import PageHeader from '@/components/Header.vue'
 import PageFooter from '@/components/Footer.vue'
+
 // import axios from 'axios'
 export default {
     name : "SignUp",
@@ -92,6 +147,96 @@ export default {
             //         vm.$router.push('/')
             //     })
         }
+
+
+import {useRouter} from 'vue-router'
+const router=useRouter
+// const route=useRoute
+//const HOST="/SignUp";
+// const passwordlen=0
+
+export default {
+  components :{
+    PageHeader,
+    PageFooter,
+  },
+   data(){
+        return {
+            user:{
+                email:'',
+                password:'',
+                repassword:'',
+                nopassword:'',
+                name:'',
+                birth:'',
+                teamcode:null,
+                gender:''
+            }
+         // /loginto
+        }
+    },
+    methods:{
+        clearAll(){
+            this.user.email='',
+            this.user.password='',
+            this.user.name='',
+            this.user.birth='',
+            this.user.teamcode=null,
+            this.user.gender=''
+
+
+        },
+        // selectMan(){
+        //     this.user.gender='man'
+
+        // },
+        // selectWoman(){
+        //     this.user.gender='woman'
+
+        // },
+        // selectNotgender(){
+        //     this.user.gender='secletgender'
+
+        // },
+        submitForm(){
+            //여기서 post를 하기 전에 user들에 들어가면 안되는 정보를 뺸다.
+            let sendUser={
+                email:this.user.email,
+                password:this.user.password,
+                name:this.user.name,
+                birth:this.user.birth,
+                teamcode:this.user.teamcode,
+                gender:this.user.gender
+            }
+            const jsonData=JSON.stringify(sendUser);
+            this.$axios.post("/api/login2",jsonData,{headers:{
+                    'Content-Type':'application/json'
+                }})
+            .then((res)=>{
+                console.log(res);
+                console.log("post로 데이터 전송 완료");
+                router.push("/")
+                this.clearAll();
+            })
+            .catch((error)=>{
+                console.log(this.user.email)
+                console.log(error)
+            })
+        },
+        checkPassword(){
+            if(this.user.repassword != this.user.password){
+                this.user.nopassword='❌'
+            }
+            else{
+                this.user.nopassword='⭕'
+            }
+            
+        }
+        
+
+            
+       
+
     }
 };
 </script>

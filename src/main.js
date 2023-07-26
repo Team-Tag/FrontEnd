@@ -1,12 +1,18 @@
-import { createApp } from 'vue';
-import App from './App.vue';
-import router from './router';
-import store from './store';
-import axios from 'axios';
+import { createApp } from 'vue'
+import App from './App.vue'
+import router from './router'
+import store from './store'
+import axios from 'axios'
+
 
 const app = createApp(App);
-
-// axios를 전역 설정
 app.config.globalProperties.$axios = axios;
 
-app.use(store).use(router).mount('#app');
+
+const app=createApp(App);
+app.config.globalProperties.$axios=axios;
+
+app.use(store); //다른 컴포넌트에서  vuexStore의 상태,변이,액션,게터등에 접근하여 사용할 수 있다.
+app.use(router);
+app.mount('#app');
+// createApp(App).use(router).mount('#app')
