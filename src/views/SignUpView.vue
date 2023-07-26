@@ -103,7 +103,7 @@
                             <p>Tag팀 코드</p>
                             <input type = "text" placeholder="팀장님께 받은 팀코드를 입력해주세요 " v-model="user.teamcode">
                         </div>
-                        <input class = "submit" type="submit" value="회원가입" @submit.prevent="submitData" ><!--이거누르면 지금까지 입력한 내용 검사(빠진내용 있는지 확인 후 ) 저장된 변수들 axios로 post -->
+                        <input class = "submit" type="submit" value="회원가입"><!--이거누르면 지금까지 입력한 내용 검사(빠진내용 있는지 확인 후 ) 저장된 변수들 axios로 post -->
                     </form>
                 </div>
 
@@ -176,28 +176,17 @@ export default {
         }
     },
     methods:{
-        clearAll(){
-            this.user.email='',
-            this.user.password='',
-            this.user.name='',
-            this.user.birth='',
-            this.user.teamcode=null,
-            this.user.gender=''
+        // clearAll(){
+        //     this.user.email='',
+        //     this.user.password='',
+        //     this.user.name='',
+        //     this.user.birth='',
+        //     this.user.teamcode=null,
+        //     this.user.gender=''
 
-
-        },
-        // selectMan(){
-        //     this.user.gender='man'
 
         // },
-        // selectWoman(){
-        //     this.user.gender='woman'
-
-        // },
-        // selectNotgender(){
-        //     this.user.gender='secletgender'
-
-        // },
+        
         submitForm(){
             //여기서 post를 하기 전에 user들에 들어가면 안되는 정보를 뺸다.
             let sendUser={
@@ -216,7 +205,7 @@ export default {
                 console.log(res);
                 console.log("post로 데이터 전송 완료");
                 router.push("/")
-                this.clearAll();
+                // this.clearAll();
             })
             .catch((error)=>{
                 console.log(this.user.email)

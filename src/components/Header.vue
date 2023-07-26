@@ -73,7 +73,7 @@
             </div>
         </div>
     </header> 
-    <div class="modal" v-if="isModalOpen == true" @click="closeModal">
+    <div class="modal" v-if="isModalOpen == true" @click="closeModal">  <!--이 영역은 header밑의 영역  -->
 			<div class="modal_body" @click.stop>
 				<div class="login-box-in">
 					<form name="login" method="post" action="">
