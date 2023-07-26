@@ -5,16 +5,38 @@
 
             <div class = "LoadMap-container">
                 <div class="LoadMap-item">
-                    <div class="RoadmapCard"></div>
-                    <div class="RoadmapCard"></div>
-                    <div class="RoadmapCard"></div>
-                    <div class="RoadmapCard"></div>
-                    <div class="RoadmapCard"></div>
-                    <div class="RoadmapCard"></div>
-                    <div class="RoadmapCard"></div>
-                    <div class="RoadmapCard"></div>
-                    <div class="RoadmapCard"></div>
-                    <div class="RoadmapCard"></div>
+                    <div class="RoadmapCard">
+                        <img src = "@/assets/vue-img.jpeg">
+                        <p>vue 속성 꿀팁!</p>
+                    </div>
+                    <div class="RoadmapCard">
+                        <img src = "@/assets/vue-img.jpeg">
+                        <p>vue 속성 꿀팁!</p>
+                    </div>
+                    <div class="RoadmapCard">
+                        <img src = "@/assets/vue-img.jpeg">
+                        <p>vue 속성 꿀팁!</p>
+                    </div>
+                    <div class="RoadmapCard">
+                        <img src = "@/assets/vue-img.jpeg">
+                        <p>vue 속성 꿀팁!</p>
+                    </div>
+                    <div class="RoadmapCard">
+                        <img src = "@/assets/vue-img.jpeg">
+                        <p>vue 속성 꿀팁!</p>
+                    </div>
+                    <div class="RoadmapCard">
+                        <img src = "@/assets/vue-img.jpeg">
+                        <p>vue 속성 꿀팁!</p>
+                    </div>
+                    <div class="RoadmapCard">
+                        <img src = "@/assets/vue-img.jpeg">
+                        <p>vue 속성 꿀팁!</p>
+                    </div>
+                    <div class="RoadmapCard">
+                        <img src = "@/assets/vue-img.jpeg">
+                        <p>vue 속성 꿀팁!</p>
+                    </div>
                 </div>
             </div>
     </div>
@@ -36,7 +58,7 @@ export default {
   .LoadMap{
     background-color: #F2F2F2;
     width : 100%;
-    height: 2048px;
+    height: 1024px;
     padding-top: 100px;
 
   }
@@ -66,4 +88,15 @@ export default {
     border-radius: 20px;
     box-shadow: 5px 5px 5px gray;
   }
+  .RoadmapCard img{
+    width : 250px;
+    height : 150px;
+    border-radius: 20px;
+    margin: 10px 10px;
+  }
+  .RoadmapCard p{
+    font-size: 18px;
+    font-weight: 600;
+  }
+
 </style>
