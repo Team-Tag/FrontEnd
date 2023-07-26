@@ -2,9 +2,44 @@
     <PageHeader/>
     <div class="LoadMap">
         <h2 class="menu-title">&#60;Back-End&#47;&#62;</h2>
-        <div class="LoadMap-Content">
 
-        </div>
+            <div class = "LoadMap-container">
+                <div class="LoadMap-item">
+                    <div class="RoadmapCard">
+                        <img src = "@/assets/spring-img.png">
+                        <p>spring 속성 꿀팁!</p>
+                    </div>
+                    <div class="RoadmapCard">
+                        <img src = "@/assets/spring-img.png">
+                        <p>spring 속성 꿀팁!</p>
+                    </div>
+                    <div class="RoadmapCard">
+                        <img src = "@/assets/spring-img.png">
+                        <p>spring 속성 꿀팁!</p>
+                    </div>
+                    <div class="RoadmapCard">
+                        <img src = "@/assets/spring-img.png">
+                        <p>spring 속성 꿀팁!</p>
+                    </div>
+                    <div class="RoadmapCard">
+                        <img src = "@/assets/spring-img.png">
+                        <p>spring 속성 꿀팁!</p>
+                    </div>
+                    <div class="RoadmapCard">
+                        <img src = "@/assets/spring-img.png">
+                        <p>spring 속성 꿀팁!</p>
+                    </div>
+                    <div class="RoadmapCard">
+                        <img src = "@/assets/spring-img.png">
+                        <p>spring 속성 꿀팁!</p>
+                    </div>
+                    <div class="RoadmapCard">
+                        <img src = "@/assets/spring-img.png">
+                        <p>spring 속성 꿀팁!</p>
+                    </div>
+          
+                </div>
+            </div>
     </div>
     <PageFooter/>
 </template>
@@ -26,12 +61,43 @@ export default {
     width : 100%;
     height: 1024px;
     padding-top: 100px;
-  }
-  .LoadMap-Content{
-    display: flex;
-    justify-content: center;
+
   }
   .menu-title {
     font-size: 40px;
   }
+  .LoadMap-container{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    width: 100%;
+    height: 1024px;
+
+  }
+  .LoadMap-item{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    margin: 20px;
+    gap: 0;
+  }
+  .RoadmapCard{
+    width: 300px;
+    height: 300px;
+    background-color: white;
+    margin: 0px 50px 50px 50px;
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px gray;
+  }
+  .RoadmapCard img{
+    width : 250px;
+    height : 150px;
+    border-radius: 20px;
+    margin: 10px 10px;
+  }
+  .RoadmapCard p{
+    font-size: 18px;
+    font-weight: 600;
+  }
+
 </style>
