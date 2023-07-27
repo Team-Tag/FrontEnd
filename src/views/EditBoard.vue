@@ -7,7 +7,7 @@
         <div class="board-form">
             <div class="board-item">
                 <p>게시글 분야</p>
-                <select name = "category">
+                <select name = "category" v-model = "board.category">
                   <option value = "FrontEnd">프론트앤드</option>
                   <option value = "BackEnd">백앤드</option>
                   <option value = "qaBoard">Q&A</option>
@@ -17,22 +17,22 @@
             </div>
             <div class="board-item">
                 <p>게시글 제목</p>
-                <input type = "text" placeholder= "게시물 제목을 입력해주세요">
+                <input type = "text" placeholder= "게시물 제목을 입력해주세요" v-model = "board.title">
             </div>
             <div class="board-item">
                 <p>게시글 내용</p>
-                <textarea placeholder= "게시글 내용"></textarea>
+                <textarea placeholder= "게시글 내용" v-model = "board.contents"></textarea>
             </div>
             <div class="board-item">
                 <p>링크</p>
-                <input type = "text" placeholder= "링크가 있다면 올려주세요" >
+                <input type = "text" placeholder= "링크가 있다면 올려주세요" v-model = "board.link">
             </div >
             <div class="board-item">
                 <p style = "font-size : 18px">파일</p>
-                <input type = "file"> 
+                <input type = "file" @change="onFileChange"> 
             </div >
           <div class="submitBox">
-            <button class="submit">등록</button>
+            <button class="submit" @click="uploadData">등록</button>
           </div>
         </div>
       </div>
@@ -45,12 +45,54 @@
 <script>
 import PageHeader from '@/components/Header.vue'
 import PageFooter from '@/components/Footer.vue'
-
+import axios from 'axios';
 export default {
   components :{
     PageHeader,
     PageFooter,
-  }
+  },
+  data(){
+    return {
+      selectedFile : null,
+      board:{
+        category : '',
+        title : '',
+        contents : '',
+        link : '',
+      },
+    };
+  },
+  methods: {
+      onFileChange(event){
+        this.selectedFile = event.target.files[0];
+      },
+      async uploadData(){
+        try{
+          const url = '서버 URL'
+          const jsonData = {
+            category: this.board.category,
+            title: this.board.title,
+            contents: this.board.contents,
+            link: this.board.link,
+          };
+          const formData = new FormData();
+          formData.append('data', JSON.stringify(jsonData));
+          formData.append('file', this.selectedFile);
+
+          console.log('jsonData:', jsonData);
+          console.log('formData:', formData); 
+
+          const response = await axios.post(url, formData,{
+            headers:{
+              'Content-Type':'multipart/form-data',
+            },
+          });
+          console.log('서버 응답:',response.data);
+        }catch(error){
+          console.error('에러 발생:', error);
+        }
+      },
+  },
 };
 </script>
 
