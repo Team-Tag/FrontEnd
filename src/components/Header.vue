@@ -203,6 +203,7 @@ export default{
     color : white;
     margin-top: 3px;
     margin-bottom: 7px;
+    
 }
 .home-menu-icon img{
     width:30px;

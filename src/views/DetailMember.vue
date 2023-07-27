@@ -79,6 +79,7 @@ export default {
         // Allimages:['맹구',2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18],
         Showimages:['로니콜먼.webp','짱구.webp','도라애몽.png',
         '루피.png','강인.jpg','김민재.jpg','릴러말즈.jpg']
+        //rm
     }
    
         
