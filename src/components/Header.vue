@@ -73,7 +73,7 @@
             </div>
         </div>
     </header> 
-    <div class="modal" v-if="isModalOpen == true" @click="closeModal">
+    <div class="modal" v-if="isModalOpen == true" @click="closeModal">  <!--이 영역은 header밑의 영역  -->
 			<div class="modal_body" @click.stop>
 				<div class="login-box-in">
 					<form name="login" method="post" action="">
@@ -116,10 +116,11 @@ export default{
 
             }, {
                 headers: {
-                'Content-Type' :'application/json'
-                }
+                'Content-Type' :'application/json',
+                 Authorization:'test1234'
+                },
             });
-
+            this.$store.commit('token',response.token);
             // 로그인이 성공적으로 처리된 경우 서버의 응답을 확인하고 필요한 작업 수행
             console.log('로그인 성공!');
             console.log(response.data); // 서버로부터 받은 응답 데이터
