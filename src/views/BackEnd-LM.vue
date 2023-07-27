@@ -33,11 +33,9 @@
                         <img src = "@/assets/spring-img.png">
                         <p>spring 속성 꿀팁!</p>
                     </div>
-                    <div class="RoadmapCard">
-                        <img src = "@/assets/spring-img.png">
-                        <p>spring 속성 꿀팁!</p>
-                    </div>
-          
+                    <router-link to = "/LoadMap/BackEnd/EditBoard" class="AddButton">
+                        <div class = "AddButtonText"><p>추가 하기</p></div>
+                    </router-link>
                 </div>
             </div>
     </div>
@@ -59,7 +57,7 @@ export default {
   .LoadMap{
     background-color: #F2F2F2;
     width : 100%;
-    height: 1024px;
+    height: 1524px;
     padding-top: 100px;
 
   }
@@ -89,6 +87,9 @@ export default {
     border-radius: 20px;
     box-shadow: 5px 5px 5px gray;
   }
+  .RoadmapCard:hover{
+    box-shadow: 10px 10px 10px gray;
+  }
   .RoadmapCard img{
     width : 250px;
     height : 150px;
@@ -98,6 +99,30 @@ export default {
   .RoadmapCard p{
     font-size: 18px;
     font-weight: 600;
+  }
+  .AddButton{
+    width: 300px;
+    height: 300px;
+    margin: 0px 50px 50px 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .AddButton div{
+    width: 100px;
+    height: 100px;
+    background-color : #008D39;
+    opacity: 80%;
+    border-radius: 50px;
+    
+
+  }
+  .AddButtonText{
+    text-align: center;
+    line-height: 100px;
+    color : white;
+    font-weight: 700;
+    font-size: 20px;
   }
 
 </style>
