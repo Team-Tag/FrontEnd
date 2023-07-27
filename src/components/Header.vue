@@ -117,10 +117,10 @@ export default{
             }, {
                 headers: {
                 'Content-Type' :'application/json',
-                 Authorization:'test1234'
+                 Authorization:"token"
                 },
             });
-            this.$store.commit('token',response.token);
+            this.$store.commit('token',response.data.token);
             // 로그인이 성공적으로 처리된 경우 서버의 응답을 확인하고 필요한 작업 수행
             console.log('로그인 성공!');
             console.log(response.data); // 서버로부터 받은 응답 데이터
@@ -132,7 +132,7 @@ export default{
             // 로그인이 실패한 경우 에러 처리
             console.error('로그인 실패!');
             console.error(error);
-
+            
             // 예를 들어, 에러 메시지를 사용자에게 표시할 수 있습니다.
             // this.errorMessage = '로그인에 실패했습니다. 아이디와 비밀번호를 확인해주세요.';
         }

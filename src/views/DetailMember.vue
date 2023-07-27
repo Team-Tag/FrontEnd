@@ -12,7 +12,6 @@
                 <div class="RoundMember" :style="{ 'background-image': 'url(' + require(`@/assets/${Showimages[5]}`) + ')' }"></div>
                 <div class="RoundMember" :style="{ 'background-image': 'url(' + require(`@/assets/${Showimages[6]}`) + ')' }"></div>
                 <i  @click="imageright" class="fa-solid fa-chevron-right"></i>
-
             </div>
             <div class="underRotate">
                 <div class="leftAbout">
