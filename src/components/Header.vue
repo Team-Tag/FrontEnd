@@ -16,19 +16,11 @@
                 </router-link>
             </div>
             <div :class= "isHomePage ? 'home-menu-item' : 'menu-item'">
-                <router-link to='/Message'>
-                    <div :class= "isHomePage ? 'home-menu-icon' :'menu-icon'">
-                        <img src = "@/assets/message.svg" >
-                    </div>
-                    <span>메시지</span>
-                </router-link>
-            </div>
-            <div :class= "isHomePage ? 'home-menu-item' : 'menu-item'">
                 <router-link to='/'>
                     <div :class= "isHomePage ? 'home-menu-icon' :'menu-icon'">
                         <img src = "@/assets/alarm.svg" >
                     </div>
-                    <span>알림</span>
+                    <span>공지</span>
                 </router-link>
             </div>
             <div :class= "isHomePage ? 'home-menu-item' : 'menu-item'">
@@ -42,17 +34,9 @@
             <div :class= "isHomePage ? 'home-menu-item' : 'menu-item'">
                 <router-link to ='/Board'>
                     <div :class= "isHomePage ? 'home-menu-icon' :'menu-icon'">
-                        <img src = "@/assets/Q&A.svg" >
+                        <i class="fa-solid fa-panorama"></i>
                     </div>
-                    <span>게시판</span>
-                </router-link>
-            </div>
-             <div :class= "isHomePage ? 'home-menu-item' : 'menu-item'">
-                <router-link to = '/Member'>
-                    <div :class= "isHomePage ? 'home-menu-icon' :'menu-icon'">
-                        <i class="fa-solid fa-users"></i>
-                    </div>
-                    <span>멤버</span>
+                    <span>작품</span>
                 </router-link>
             </div>
              <div :class= "isHomePage ? 'home-menu-item' : 'menu-item'">
@@ -62,14 +46,6 @@
                     </div>
                     <span>일정</span>
                 </router-link>
-            </div>
-             <div :class= "isHomePage ? 'home-menu-item' : 'menu-item'">
-                <div @click="isModalOpen=true">
-                    <div :class= "isHomePage ? 'home-menu-icon' :'menu-icon'">
-                        <i class="fa-solid fa-circle-user"></i>
-                    </div>
-                    <span>로그인</span>
-                </div>
             </div>
         </div>
     </header> 
