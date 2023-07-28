@@ -42,10 +42,26 @@
         </ul>
       </div>
       <div class = "NewPost">
-        <button>글 작성</button>
+        <button @click = "isModalOpen=true">글 작성</button>
       </div>
     </div>
-  </div>  
+    <div class = "modal" v-if="isModalOpen == true" @click="closeModal" >
+      <div class="modal_body" @click.stop>
+				<div class="login-box-in">
+						<div style="font-size:35px">&lt;로그인/&gt;</div>
+						<div class="login-porm">
+							<p>관리자아이디</p>
+							<input type="text" name="userid" v-model="userid">
+							<p>비밀번호</p>
+							<input type="password" name="passwd" v-model="passwd">
+							<button class = "submit-button" @click="submitLogin">로그인</button>
+							<div>
+							</div>
+						</div>					
+				</div>
+			</div>
+    </div>  
+  </div>
   <PageFooter/>
 </template>
 <script>
@@ -70,6 +86,9 @@ export default {
       ],
       currentPage: 1,
       totalPages: 5,
+      isModalOpen : false,
+      userid : "",
+      passwd : "",
     };
   },
   components :{
@@ -77,24 +96,34 @@ export default {
     PageFooter,
   },
   methods: {
-        fetchNotices(page) {
-            axios.get(`/api/notices?page=${page}`)
-                .then(response => {
-                    this.notices = response.data.content;
-                    this.totalPages = response.data.totalPages;
-                })
-                .catch(error => {
-                    console.error('Error fetching notices:', error);
-                });
-        },
-        goToPage(page) {
-            this.currentPage = page;
-            this.fetchNotices(page);
-        },
+    fetchNotices(page) {
+      axios.get(`/api/notices?page=${page}`)
+        .then(response => {
+          this.notices = response.data.content;
+          this.totalPages = response.data.totalPages;
+        })
+        .catch(error => {
+          console.error('Error fetching notices:', error);
+        });
+      },
+      goToPage(page) {
+        this.currentPage = page;
+        this.fetchNotices(page);
+      },
+      closeModal(){
+        this.isModalOpen = false;
+      },
+      submitLogin(){
+      console.log("click");
+        if(this.userid == "admin" && this.passwd == "1234"){
+          this.$router.push('/Board/EditBoard');
+        }
+      },
     },
     mounted() {
         this.fetchNotices(this.currentPage);
     },
+    
 };
 </script>
 
@@ -191,5 +220,78 @@ export default {
     border : 1px solid #008D39;
     width : 70px;
     height: 30px;
+  }
+
+  /*모달창*/
+  .login-box-out {
+	height : 400px;
+	padding : 24px;
+	text-align : center;
+	margin-bottom : 20px;
+	width : 350px;
+	background-color : white;
+	border-radius: 8px;
+	box-shadow: 0 0 8px 0 rgba(0,0,0,0.08);
+}
+
+
+.login-porm{
+	margin : 30px 0 0 0;
+}
+
+.login-porm input{
+	width : 312px;
+	height : 40px;
+	font-size : 15px;
+	border-radius: 8px;
+	border: 0.5px solid black; 
+	margin : 0 0 30px 0;
+}
+.submit-button{
+  width : 312px;
+	height : 40px;
+	font-size : 15px;
+	border-radius: 8px;
+	margin : 0 0 30px 0;
+  color : white; 
+	background-color : green; 
+  border: 0.5px solid green;
+}
+
+.login-porm p{
+	text-align : left;
+	color : gray;
+	margin-left: 20px;
+	margin-bottom: 10px;
+}
+.modal {
+	position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .modal.show {
+	display: block;
+  }
+
+  .modal_body {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 350px;
+	height: 400px;
+	padding: 40px;
+	text-align: center;
+	background-color: rgb(255, 255, 255);
+	border-radius: 10px;
+	box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
+
+	transform: translateX(-50%) translateY(-50%);
   }
 </style>

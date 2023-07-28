@@ -3,7 +3,6 @@ import Home from '../views/HomeView.vue'
 import SignUp from '../views/SignUpView.vue'
 import Board from '../views/BoardView.vue'
 import LoadMap from '../views/LoadMapView.vue'
-import Message from '../views/MessageView.vue'
 import Schedule from '../views/ScheduleView.vue'
 import FrontEnd from '../views/FrontEnd-LM.vue'
 import BackEnd from '../views/BackEnd-LM.vue'
@@ -36,24 +35,14 @@ const routes = [
     component : FrontEnd
   },
   {
-    path : '/LoadMap/FrontEnd/EditBoard',
-    name : 'EditBoardFrontEnd',
+    path : '/Board/EditBoard',
+    name : 'EditBoard',
     component : EditBoard,
   },
   {
     path : '/LoadMap/BackEnd',
     name : 'BackEnd',
     component : BackEnd
-  },
-  {
-    path : '/LoadMap/BackEnd/EditBoard',
-    name : 'EditBoardBackEnd',
-    component : EditBoard,
-  },
-  {
-    path : '/Message',
-    name : 'Message',
-    component : Message
   },
   {
     path : '/Schedule',

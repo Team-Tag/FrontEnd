@@ -50,26 +50,26 @@
         </div>
     </header> 
     <div class="modal" v-if="isModalOpen == true" @click="closeModal">
-			<div class="modal_body" @click.stop>
-				<div class="login-box-in">
-					<form name="login" method="post" action="">
-						<div style="font-size:35px">&lt;로그인/&gt;</div>
-						<div class="login-porm">
-							<p>이메일(아이디)</p>
-							<input type="text" name="userid" v-model="userid">
-							<p>비밀번호</p>
-							<input type="password" name="passwd" v-model="passwd">
-							<input type="submit" value="로그인" style="color : white; 
-									background-color : green; border: 0.5px solid green;" @click="submitLogin">
-							<div>
-								<span style="color : gray">회원가입 원한다면?</span>
-								<router-link to='/SignUp' style="color : green" @click="closeModal">회원가입</router-link>
-							</div>
-						</div>					
-					</form>
-				</div>
+		<div class="modal_body" @click.stop>
+			<div class="login-box-in">
+				<form name="login" method="post" action="">
+					<div style="font-size:35px">&lt;로그인/&gt;</div>
+					<div class="login-porm">
+						<p>이메일(아이디)</p>
+						<input type="text" name="userid" v-model="userid">
+						<p>비밀번호</p>
+						<input type="password" name="passwd" v-model="passwd">
+						<input type="submit" value="로그인" style="color : white; 
+							background-color : green; border: 0.5px solid green;" @click="submitLogin">
+						<div>
+							<span style="color : gray">회원가입 원한다면?</span>
+							<router-link to='/SignUp' style="color : green" @click="closeModal">회원가입</router-link>
+						</div>
+					</div>					
+				</form>
 			</div>
 		</div>
+	</div>
 </template>
 
 <script>

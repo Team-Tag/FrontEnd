@@ -6,16 +6,6 @@
       <div class="board-container">
         <div class="board-form">
             <div class="board-item">
-                <p>게시글 분야</p>
-                <select name = "category" v-model = "board.category">
-                  <option value = "FrontEnd">프론트앤드</option>
-                  <option value = "BackEnd">백앤드</option>
-                  <option value = "qaBoard">Q&A</option>
-                  <option value = "freeBoard">자유게시판</option>
-                  <option value = "studyPosts">스터디 모집</option>
-                </select>
-            </div>
-            <div class="board-item">
                 <p>게시글 제목</p>
                 <input type = "text" placeholder= "게시물 제목을 입력해주세요" v-model = "board.title">
             </div>
@@ -26,7 +16,7 @@
             <div class="board-item">
                 <p>링크</p>
                 <input type = "text" placeholder= "링크가 있다면 올려주세요" v-model = "board.link">
-            </div >
+            </div>
             <div class="board-item">
                 <p style = "font-size : 18px">파일</p>
                 <input type = "file" @change="onFileChange"> 
