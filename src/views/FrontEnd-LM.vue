@@ -33,9 +33,6 @@
                         <img src = "@/assets/vue-img.jpeg">
                         <p>vue 속성 꿀팁!</p>
                     </div>
-                    <router-link to="/LoadMap/FrontEnd/EditBoard" class="AddButton">
-                        <div class = "AddButtonText"><p>추가 하기</p></div>
-                    </router-link>
                 </div>
             </div>
     </div>
@@ -118,12 +115,4 @@ export default {
   .AddButton:hover{
     opacity: 50%;
   }
-  .AddButtonText{
-    text-align: center;
-    line-height: 100px;
-    color : white;
-    font-weight: 700;
-    font-size: 20px;
-  }
-
 </style>

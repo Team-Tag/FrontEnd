@@ -85,7 +85,7 @@ export default {
         { id: 111, title: "샘플 공지사항 11", views: 2000, createdAt: "2023-07-18" },
       ],
       currentPage: 1,
-      totalPages: 5,
+      totalPages: 4,
       isModalOpen : false,
       userid : "",
       passwd : "",

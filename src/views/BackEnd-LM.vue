@@ -33,9 +33,6 @@
                         <img src = "@/assets/spring-img.png">
                         <p>spring 속성 꿀팁!</p>
                     </div>
-                    <router-link to = "/LoadMap/BackEnd/EditBoard" class="AddButton">
-                        <div class = "AddButtonText"><p>추가 하기</p></div>
-                    </router-link>
                 </div>
             </div>
     </div>
@@ -116,13 +113,6 @@ export default {
     border-radius: 50px;
     
 
-  }
-  .AddButtonText{
-    text-align: center;
-    line-height: 100px;
-    color : white;
-    font-weight: 700;
-    font-size: 20px;
   }
 
 </style>

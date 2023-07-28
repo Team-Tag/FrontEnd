@@ -7,7 +7,7 @@ import Schedule from '../views/ScheduleView.vue'
 import FrontEnd from '../views/FrontEnd-LM.vue'
 import BackEnd from '../views/BackEnd-LM.vue'
 import EditBoard from '../views/EditBoard.vue'
-
+import ArticleView from '../views/ArticleView.vue'
 const routes = [
   {
     path: '/',
@@ -23,6 +23,11 @@ const routes = [
     path : '/Board',
     name : 'Board',
     component : Board
+  },
+  {
+    path : '/Board/Article',
+    name : 'Article',
+    component : ArticleView
   },
   {
     path : '/LoadMap',
