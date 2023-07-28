@@ -4,7 +4,7 @@
         <div class="Member-Content">
         <h1>&#60;Team Tag Member&#47;&#62;</h1>
         </div>
-        <router-link to = '/DetailMember'><button>멤버 상세페이지 이동</button></router-link>
+        <router-link to = '/DetailMember'><button>멤버 상세페이지wlwlwlwlw 이동</button></router-link>
         <router-link to = '/DetailMember'>
           <div class="CardBundle">
               <div v-for="(image,index) in Allimages" :key="index" class="MemberCard">
