@@ -16,7 +16,7 @@
                 </router-link>
             </div>
             <div :class= "isHomePage ? 'home-menu-item' : 'menu-item'">
-                <router-link to='/'>
+                <router-link to='/Board'>
                     <div :class= "isHomePage ? 'home-menu-icon' :'menu-icon'">
                         <img src = "@/assets/alarm.svg" >
                     </div>
@@ -32,7 +32,7 @@
                 </router-link>
             </div>
             <div :class= "isHomePage ? 'home-menu-item' : 'menu-item'">
-                <router-link to ='/Board'>
+                <router-link to ='/'>
                     <div :class= "isHomePage ? 'home-menu-icon' :'menu-icon'">
                         <i class="fa-solid fa-panorama"></i>
                     </div>
