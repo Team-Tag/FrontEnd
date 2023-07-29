@@ -39,12 +39,20 @@
                     <span>작품</span>
                 </router-link>
             </div>
-             <div :class= "isHomePage ? 'home-menu-item' : 'menu-item'">
+            <div :class= "isHomePage ? 'home-menu-item' : 'menu-item'">
                 <router-link to = '/Schedule'>
                     <div :class= "isHomePage ? 'home-menu-icon' :'menu-icon'">
                         <i class="fa-solid fa-calendar-days"></i>
                     </div>
                     <span>일정</span>
+                </router-link>
+            </div>
+            <div :class= "isHomePage ? 'home-menu-item' : 'menu-item'">
+                <router-link to = '/'>
+                    <div :class= "isHomePage ? 'home-menu-icon' :'menu-icon'">
+                        <img src = "@/assets/Q&A.svg">
+                    </div>
+                    <span>Q&A</span>
                 </router-link>
             </div>
         </div>
