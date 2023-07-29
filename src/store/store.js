@@ -16,15 +16,14 @@ const store = createStore({
       인스타ID:"hoon"
       //
     },
-    count:0,
-    token:'',
-    
+    clickWorks:""
     
   },
   mutations: {
     increment(state){
       state.count++;
-    }
+    },
+    
     
   },
   actions: {

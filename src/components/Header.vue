@@ -32,7 +32,7 @@
                 </router-link>
             </div>
             <div :class= "isHomePage ? 'home-menu-item' : 'menu-item'">
-                <router-link to ='/Board'>
+                <router-link to ='/ShowWorks'>
                     <div :class= "isHomePage ? 'home-menu-icon' :'menu-icon'">
                         <i class="fa-solid fa-panorama"></i>
                     </div>
@@ -59,7 +59,7 @@
 							<input type="text" name="userid" v-model="userid">
 							<p>비밀번호</p>
 							<input type="password" name="passwd" v-model="passwd">
-							<input type="submit" value="로그인" style="color : white; 
+							<input type="submit" value="로그인" style="color : white;
 									background-color : green; border: 0.5px solid green;" @click="submitLogin">
 							<div>
 								<span style="color : gray">회원가입 원한다면?</span>

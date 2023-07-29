@@ -2,7 +2,7 @@
     <PageHeader/>
     <div class="Schedule">
         <div class="Schedule-Content">
-        <h1>일정 페이지입니다</h1>
+        <h1>일정 페이지입니다dddd</h1>
         </div>
     </div>
     <PageFooter/>

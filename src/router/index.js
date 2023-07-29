@@ -3,13 +3,13 @@ import Home from '../views/HomeView.vue'
 import SignUp from '../views/SignUpView.vue'
 import Board from '../views/BoardView.vue'
 import LoadMap from '../views/LoadMapView.vue'
-import Member from '../views/MemberView.vue'
-import DetailMember from '../views/DetailMember.vue'
 import Message from '../views/MessageView.vue'
 import Schedule from '../views/ScheduleView.vue'
 import FrontEnd from '../views/FrontEnd-LM.vue'
 import BackEnd from '../views/BackEnd-LM.vue'
 import EditBoard from '../views/EditBoard.vue'
+import ShowWorks from '../views/ShowWorks.vue'
+
 
 const routes = [
   {
@@ -33,6 +33,11 @@ const routes = [
     component : LoadMap
   },
   {
+    path : '/ShowWorks',
+    name : 'ShowWorks',
+    component : ShowWorks
+  },
+  {
     path : '/LoadMap/FrontEnd',
     name : 'FrontEnd',
     component : FrontEnd
@@ -53,16 +58,7 @@ const routes = [
     component : EditBoard,
   },
   {
-    path : '/Member',
-    name : 'Member',
-    component : Member
-  },
-  {
-    path : '/DetailMember',
-    name : 'DetailMember',
-    component : DetailMember
-  },
-  {
+
     path : '/Message',
     name : 'Message',
     component : Message
