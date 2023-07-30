@@ -4,22 +4,46 @@ const store = createStore({
   state:{
     selectedCard:'',
     clickCard:[],
-    countViewArticle:[
-      {name:"프론트엔드 로드맵1",view_count:0},
-      {name:"프론트엔드 로드맵1",view_count:0},
-      {name:"프론트엔드 로드맵1",view_count:0},
-      {name:"프론트엔드 로드맵1",view_count:0}
-  ]
+    countViewArticle_front:[
+      {view_count:0},
+      {view_count:0},
+      {view_count:0},
+      {view_count:0},
+      {view_count:0},
+      {view_count:0},
+      {view_count:0},
+      {view_count:0}
+      // vuex에서 카운트한 값이 새로고침하면 0으로 초기화를 했기때문에 다시 들어가면 0으로 됨 로컬 스토리지? 아니면 서버로 전송 필요
+
+  ],
+  countViewArticle_back:[
+    {view_count:0},
+    {view_count:0},
+    {view_count:0},
+    {view_count:0},
+    {view_count:0},
+    {view_count:0},
+    {view_count:0},
+    {view_count:0}
+    // vuex에서 카운트한 값이 새로고침하면 0으로 초기화를 했기때문에 다시 들어가면 0으로 됨 로컬 스토리지? 아니면 서버로 전송 필요
+
+]
     
   },
-  mutations: {
-    SET_SELECTED_CARD(state, card) {
-      state.selectedCard = card;
+  mutations: {//이걸로 상태 변경 이 아니고 여기는 비동기적인 로직을 구현하고자 할때 사용
+    VIEW_COUNT_UP_FRONT(state, index,) {
+      state.countViewArticle_front[index].view_count++;
+    },
+    VIEW_COUNT_UP_BACK(state, index,) {
+      state.countViewArticle_back[index].view_count++;
     },
   },
-  actions: {
-    setSelectedCard({commit},card){
-      commit('SET_SELECTED_CARD',card);
+  actions: {//이거 호출
+    viewCountUpFront({commit},index){
+      commit('VIEW_COUNT_UP_FRONT',index);
+    },
+    viewCountUpBack({commit},index){
+      commit('VIEW_COUNT_UP_BACK',index);
     }
   },
   getters: {

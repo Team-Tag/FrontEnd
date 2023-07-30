@@ -1,10 +1,15 @@
 <template>
   <PageHeader/>
   <div class="Board">
-    <h2 class="menu-title">{{ $route.params.name}}</h2>
+    <h2 class="menu-title">{{ $route.params.title}}</h2>
     <div class="article-box">
+      <!-- <p>조회수{{ getArticleViewCount_Front($route.params.index)}}</p> -->
+      <p>back조회수{{ getArticleViewCount_Back($route.params.index)}}</p>
+
         <div class="article-image" :style="{ 'background-image': 'url(' + require(`@/assets/${$route.params.url }`) + ')' }"></div>
        <p class="article-text">{{ $route.params.article }}</p>
+       
+       <!-- 조회수 -> 페이지 들어갈때 count  -->
     </div>
   </div>  
   <PageFooter/>
@@ -12,7 +17,8 @@
 <script>
 import PageHeader from '@/components/Header.vue'
 import PageFooter from '@/components/Footer.vue'
-import axios from 'axios';
+// import axios from 'axios';
+import {mapState} from 'vuex'
 export default {
   components :{
     PageHeader,
@@ -20,47 +26,27 @@ export default {
   },
   data(){
     return {
-      selectedFile : null,
-      board:{
-        category : '',
-        title : '',
-        contents : '',
-        link : '',
-      },
     };
   },
+  computed:
+      {
+        ...mapState(['countViewArticle_front']),
+        ...mapState(['countViewArticle_back'])
+        
+      },
   methods: {
-      onFileChange(event){
-        this.selectedFile = event.target.files[0];
-      },
-      async uploadData(){
-        try{
-          const url = '서버 URL'
-          const jsonData = {
-            category: this.board.category,
-            title: this.board.title,
-            contents: this.board.contents,
-            link: this.board.link,
-          };
-          const formData = new FormData();
-          formData.append('data', JSON.stringify(jsonData));
-          formData.append('file', this.selectedFile);
+       getArticleViewCount_Front(index){
+          return this.countViewArticle_front[index].view_count;
+        
+        },
+      getArticleViewCount_Back(index){
+          return this.countViewArticle_back[index].view_count;
+        
+        },
+  }
+}
 
-          console.log('jsonData:', jsonData);
-          console.log('formData:', formData); 
 
-          const response = await axios.post(url, formData,{
-            headers:{
-              'Content-Type':'multipart/form-data',
-            },
-          });
-          console.log('서버 응답:',response.data);
-        }catch(error){
-          console.error('에러 발생:', error);
-        }
-      },
-  },
-};
 // import '@/assets/font.css'
 
 </script>
