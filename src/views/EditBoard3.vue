@@ -6,24 +6,12 @@
       <div class="board-container">
         <div class="board-form">
             <div class="board-item">
-                <p>게시글 제목</p>
-                <input type = "text" placeholder= "게시물 제목을 입력해주세요" v-model = "board.title">
-            </div>
-            <div class="board-item">
-                <p>게시글 내용</p>
-                <textarea placeholder= "게시글 내용" v-model = "board.contents"></textarea>
-            </div>
-            <div class="board-item">
-                <p>링크</p>
-                <input type = "text" placeholder= "링크가 있다면 올려주세요" v-model = "board.link">
-            </div>
-            <div class="board-item">
                 <p style = "font-size : 18px">파일</p>
                 <input type = "file" name="image" @change="onFileChange"> 
-            </div>
-            <div class="submitBox">
-              <button class="submit" @click="uploadData">등록</button>
-            </div>
+            </div >
+          <div class="submitBox">
+            <button class="submit" @click="uploadData">등록</button>
+          </div>
         </div>
       </div>
     </div>
@@ -42,36 +30,31 @@ export default {
   data(){
     return {
       selectedFile : null,
-      board:{
-        title : '',
-        contents : '',
-        link : '',
-      },
     };
   },
   methods: {
       onFileChange(event){
         this.selectedFile = event.target.files[0];
       },
-      async uploadData(){
-        try{
-          const url = '/api/notice/writeNotice'
-          const jsonData = {
-            title: this.board.title,
-            contents: this.board.contents,
-            link: this.board.link,
-          };
-          const formData = new FormData();
-          formData.append('jsonData', jsonData);
-          formData.append('image', this.selectedFile);
+      uploadData(){
+        const url = '/api/notice/writeNotice3'
+
+        const formData = new FormData();
+        formData.append('image', this.selectedFile);
           
-          const response = await axios.post(url, formData);
-          console.log('서버 응답:',response.data);
-          alert('게시물이 성공적으로 등록되었습니다.');
-        }catch(error){
-          console.error('에러 발생:',error.response.data);
-          alert('게시물 등록 중 에러가 발생했습니다. 다시 시도해주세요.');
-        }
+        axios
+            .post(url, formData,{
+                headers : {
+                    'Content-Type': 'multipart/form-data',
+                },
+            })
+            .then((res) => {
+                console.log('파일 업로드 성공!');
+                console.log(res.data);
+            })
+            .catch((error) => {
+                console.error('파일 업로드 실패', error);
+            });
       },
   },
 };

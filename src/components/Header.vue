@@ -57,73 +57,12 @@
             </div>
         </div>
     </header> 
-    <div class="modal" v-if="isModalOpen == true" @click="closeModal">
-		<div class="modal_body" @click.stop>
-			<div class="login-box-in">
-				<form name="login" method="post" action="">
-					<div style="font-size:35px">&lt;로그인/&gt;</div>
-					<div class="login-porm">
-						<p>이메일(아이디)</p>
-						<input type="text" name="userid" v-model="userid">
-						<p>비밀번호</p>
-						<input type="password" name="passwd" v-model="passwd">
-						<input type="submit" value="로그인" style="color : white; 
-							background-color : green; border: 0.5px solid green;" @click="submitLogin">
-						<div>
-							<span style="color : gray">회원가입 원한다면?</span>
-							<router-link to='/SignUp' style="color : green" @click="closeModal">회원가입</router-link>
-						</div>
-					</div>					
-				</form>
-			</div>
-		</div>
-	</div>
 </template>
 
 <script>
 
 export default{
     name: 'PageHeader',
-    data(){
-        return{
-            isModalOpen : false,
-            userid : "",
-            passwd : "",
-        };
-    },
-    methods:{
-        async submitLogin() {
-        try {
-            const response = await this.$axios.post('/api/login2', {    
-                userid: this.userid,
-                passwd: this.passwd,
-
-            }, {
-                headers: {
-                'Content-Type' :'application/json'
-                }
-            });
-
-            // 로그인이 성공적으로 처리된 경우 서버의 응답을 확인하고 필요한 작업 수행
-            console.log('로그인 성공!');
-            console.log(response.data); // 서버로부터 받은 응답 데이터
-
-            // 예를 들어, 로그인이 성공한 경우 특정 페이지로 리다이렉션하거나 상태를 관리할 수 있습니다.
-            // this.$router.push('/dashboard'); // 대시보드 페이지로 리다이렉션
-
-        } catch (error) {
-            // 로그인이 실패한 경우 에러 처리
-            console.error('로그인 실패!');
-            console.error(error);
-
-            // 예를 들어, 에러 메시지를 사용자에게 표시할 수 있습니다.
-            // this.errorMessage = '로그인에 실패했습니다. 아이디와 비밀번호를 확인해주세요.';
-        }
-        },
-        closeModal(){
-            this.isModalOpen = false;
-        },
-    },
     computed: {
         isHomePage() {
             // 현재 페이지가 홈 페이지인지 확인

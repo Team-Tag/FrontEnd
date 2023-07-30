@@ -27,17 +27,24 @@
     </section>
     <section class="screen2" ref = "s2">
       <div class="content-wrapper">
-        <!-- Content of screen3 goes here -->
+        <div>
+          <h2>Tag팀은 무엇을 하나요?</h2>
+          <p>'Tag' 는 웹(WEB)프로그램의 전반적인 흐름을 이해<br>
+          하기 위해 HTML, CSS, JavaScript 등을 통해 웹(WEB)<br>
+          프로그램 제작 및 설계 과정을 학습합니다. <br>
+          씨애랑에서 제공하는 다양한 커리큘럼을 통해 프론트 엔드 및<br>
+           백엔드 역량을 강화할 수 있습니다</p>
+        </div>
       </div>
     </section>
     <section class="screen3" ref = "s3">
       <div class="content-wrapper">
-        <!-- Content of screen3 goes here -->
+
       </div>
     </section>
     <section class="screen4" ref = "s4">
       <div class="content-wrapper">
-        <!-- Content of screen3 goes here -->
+
       </div>
       <PageFooter/>
     </section>
