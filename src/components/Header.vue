@@ -47,6 +47,15 @@
                     <span>일정</span>
                 </router-link>
             </div>
+            <div :class= "isHomePage ? 'home-menu-item' : 'menu-item'">
+                <router-link to = '/Schedule'>
+                    <div :class= "isHomePage ? 'home-menu-icon' :'menu-icon'">
+                        <i class="fa-solid fa-question"></i>
+                    </div>
+                    <span>질문</span>
+                </router-link>
+            </div>
+
         </div>
     </header> 
     <div class="modal" v-if="isModalOpen == true" @click="closeModal">  <!--이 영역은 header밑의 영역  -->

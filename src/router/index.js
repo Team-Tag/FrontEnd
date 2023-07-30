@@ -7,7 +7,7 @@ import Message from '../views/MessageView.vue'
 import Schedule from '../views/ScheduleView.vue'
 import FrontEnd from '../views/FrontEnd-LM.vue'
 import BackEnd from '../views/BackEnd-LM.vue'
-import EditBoard from '../views/EditBoard.vue'
+import RoadmapArticle from '../views/RoadmapArticle.vue'
 import ShowWorks from '../views/ShowWorks.vue'
 
 
@@ -43,9 +43,9 @@ const routes = [
     component : FrontEnd
   },
   {
-    path : '/LoadMap/FrontEnd/EditBoard',
-    name : 'EditBoardFrontEnd',
-    component : EditBoard,
+    path : '/LoadMap/FrontEnd/RoadmapArticle',
+    name : 'FrontRoadmapArticle',
+    component : RoadmapArticle,
   },
   {
     path : '/LoadMap/BackEnd',
@@ -53,9 +53,9 @@ const routes = [
     component : BackEnd
   },
   {
-    path : '/LoadMap/BackEnd/EditBoard',
-    name : 'EditBoardBackEnd',
-    component : EditBoard,
+    path : '/LoadMap/BackEnd/RoadmapArticle',
+    name : 'BackendRoadmapArticle',
+    component : RoadmapArticle,
   },
   {
 

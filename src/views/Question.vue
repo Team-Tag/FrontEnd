@@ -2,7 +2,7 @@
     <PageHeader/>
     <div class="Schedule">
         <div class="Schedule-Content">
-        <h1>Schedule</h1>
+        <h1>자주하는 질문 </h1>
         <div>
           <div></div>
           <div></div>
