@@ -31,7 +31,7 @@ const routes = [
     component : Board
   },
   {
-    path : '/Board/Article',
+    path : '/Board/:id',
     name : 'Article',
     component : ArticleView
   },

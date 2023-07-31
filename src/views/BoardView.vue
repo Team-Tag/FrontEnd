@@ -23,22 +23,25 @@
               <th>작성시간</th>
             </tr>
           </thead>
-          <tbody>
-            <tr v-for="notice in notices" :key="notice.id">
-              <td style = "width : 50px;">{{ notice.ID }}</td>
-              <td style = "width : 400px;">{{ notice.title }}</td>
-              <td style = "width : 50px;">{{ notice.viewCount }}</td>
-              <td style = "width : 150px;">{{ notice.writeTime }}</td>
+          <tbody v-if = "hasNotices">
+            <tr v-for="notice in notices" :key="notice.ID" @click="goToNoticeDetail(notice.ID)">
+                <td style = "width : 50px;">{{ notice.serialNum}}</td>
+                <td style = "width : 400px;">{{ notice.title }}</td>
+                <td style = "width : 50px;">{{ notice.viewCount }}</td>
+                <td style = "width : 150px;">{{ notice.writeTime }}</td>
             </tr>
+          </tbody>
+          <tbody v-else>
+            <td colspan="4">등록한 공지사항이 없습니다.</td>
           </tbody>
         </table>
         <!-- 페이지네이션 -->
       </div>
       <div class="pagination">
         <ul>
-            <li v-for="page in totalPages" :key="page" @click="goToPage(page)">
+            <!-- <li v-for="page in totalPages" :key="page" @click="goToPage(page)">
                 {{ page }}
-            </li>
+            </li> -->
         </ul>
       </div>
       <div class = "NewPost">
@@ -64,16 +67,14 @@
   </div>
   <PageFooter/>
 </template>
+
+
 <script>
 import PageHeader from '@/components/Header.vue'
 import PageFooter from '@/components/Footer.vue'
-import axios from 'axios';
 export default {
   data() {
     return{
-      notices:[],
-      currentPage: 1,
-      totalPages: 2,
       isModalOpen : false,
       userid : "",
       passwd : "",
@@ -83,21 +84,18 @@ export default {
     PageHeader,
     PageFooter,
   },
+  computed : {
+    notices() {
+      return this.$store.state.notices;
+    },
+    hasNotices() {
+      return this.$store.getters.hasNotices; // Vuex 스토어의 hasNotices getter 사용
+    }
+  },
+  created() {
+      this.$store.dispatch('fetchNotices'); // 공지사항 데이터를 서버로부터 가져오기
+  },  
   methods: {
-    fetchNotices() {
-      axios.get(`/api/list`)
-        .then(response => {
-          this.notices = response.data.content;
-          // this.totalPages = response.data.totalPages;
-        })
-        .catch(error => {
-          console.error('Error fetching notices:', error);
-        });
-      },
-      goToPage(page) {
-        this.currentPage = page;
-        this.fetchNotices(page);
-      },
       closeModal(){
         this.isModalOpen = false;
       },
@@ -106,11 +104,10 @@ export default {
           this.$router.push('/Board/EditBoard');
         }
       },
-    },
-    mounted() {
-        this.fetchNotices(this.currentPage);
-    },
-    
+      goToNoticeDetail(noticeId) {
+        this.$router.push(`/Board/${noticeId}`);
+      },
+  },
 };
 </script>
 
