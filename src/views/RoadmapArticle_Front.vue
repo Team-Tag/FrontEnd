@@ -3,7 +3,7 @@
   <div class="Board">
     <h2 class="menu-title">{{ $route.params.title}}</h2>
     <div class="article-box">
-      <p>front조회수{{ getArticleViewCount_Front($route.params.index)}}</p>
+      <!-- <p>front조회수{{ getArticleViewCount_Front($route.params.index)}}</p> -->
       <!-- <p>조회수{{ getArticleViewCount_Back($route.params.index)}}</p> -->
 
         <div class="article-image" :style="{ 'background-image': 'url(' + require(`@/assets/${$route.params.url }`) + ')' }"></div>
@@ -18,7 +18,7 @@
 import PageHeader from '@/components/Header.vue'
 import PageFooter from '@/components/Footer.vue'
 // import axios from 'axios';
-import {mapState} from 'vuex'
+// import {mapState} from 'vuex'
 export default {
   components :{
     PageHeader,
@@ -28,21 +28,21 @@ export default {
     return {
     };
   },
-  computed:
-      {
-        ...mapState(['countViewArticle_front']),
-        ...mapState(['countViewArticle_back'])
+  // computed:
+  //     {
+  //       ...mapState(['countViewArticle_front']),
+  //       ...mapState(['countViewArticle_back'])
         
-      },
+  //     },
   methods: {
-       getArticleViewCount_Front(index){
-          return this.countViewArticle_front[index].view_count;
+      //  getArticleViewCount_Front(index){
+      //     return this.countViewArticle_front[index].view_count;
         
-        },
-      getArticleViewCount_Back(index){
-          return this.countViewArticle_back[index].view_count;
+      //   },
+      // getArticleViewCount_Back(index){
+      //     return this.countViewArticle_back[index].view_count;
         
-        },
+      //   },
   }
 }
 
@@ -54,9 +54,9 @@ export default {
 <style scoped>
 /* *{font-family: 'NeoDunggeunmoPro-Regular';} */
 
-  .Board-Content{
+  /* .Board-Content{
       
-  }
+  } */
   .Board{
     margin-top: 70px;
     background-color: #F2F2F2;

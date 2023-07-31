@@ -10,8 +10,7 @@ import BackEnd from '../views/BackEnd-LM.vue'
 import RoadmapArticle_Front from '../views/RoadmapArticle_Front.vue'
 import RoadmapArticle_Back from  '../views/RoadmapArticle_Back.vue'
 import ShowWorks from '../views/ShowWorks.vue'
-
-
+ 
 const routes = [
   {
     path: '/',
@@ -68,7 +67,7 @@ const routes = [
     path : '/Schedule',
     name : 'Schedule',
     component : Schedule
-  }
+  },
 
 ]
 
