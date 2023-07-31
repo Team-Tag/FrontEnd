@@ -62,7 +62,7 @@ export default {
             link: this.board.link,
           };
           const formData = new FormData();
-          formData.append('jsonData', jsonData);
+          formData.append('jsonData', JSON.stringify(jsonData));
           formData.append('image', this.selectedFile);
           
           const response = await axios.post(url, formData);

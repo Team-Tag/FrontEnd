@@ -26,8 +26,8 @@
       </div>
     </section>
     <section class="screen2" ref = "s2">
-      <div class="content-wrapper">
-        <div>
+      <div class="screen2-content">
+        <div class = "screen2-item">
           <h2>Tag팀은 무엇을 하나요?</h2>
           <p>'Tag' 는 웹(WEB)프로그램의 전반적인 흐름을 이해<br>
           하기 위해 HTML, CSS, JavaScript 등을 통해 웹(WEB)<br>
@@ -43,7 +43,7 @@
       </div>
     </section>
     <section class="screen4" ref = "s4">
-      <div class="content-wrapper">
+      <div class="content-wrapper" style = "flex : 1;">
 
       </div>
       <PageFooter/>
@@ -121,6 +121,9 @@ export default {
   }
   .screen2{
     background-image: url("@/assets/BackImg1.jpeg");
+    display: flex;
+    
+    align-items: center;
   }
   .screen3{
     background-image: url("@/assets/BackImg2.jpeg");
@@ -146,8 +149,11 @@ export default {
     position: absolute;
     left : 40px;
   }
-  .content-wrapper{
-    flex : 1;
+  .screen2-content{
+    background-color: red;
+    width: 100%;
+    height: 500px;
+    display: flex;
   }
   .scrollMenu{
     position: fixed;
@@ -196,5 +202,10 @@ export default {
     top : 20px;
     left: 9px;
   }
+  .screen2-content{
+    color : white;
+    
+  }
+
 </style>
 
