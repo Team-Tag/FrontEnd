@@ -71,13 +71,17 @@ export default {
     margin: auto;
     margin-top: 20px;
     text-align: center;
-    background-color: #99999930;
+    background-color: #e8e8e830;
     width: 60vw;
+    
   }
   .accordion p{
     background-color: #F2F2F2;
     font-size: 20px;
     padding-bottom: 10px;
+  }
+  .accordion .title:hover{
+    box-shadow: 5px 5px 5px rgb(203, 203, 203);
   }
   .accordion span{
     width: 96%;
@@ -95,7 +99,7 @@ export default {
     max-height: 600px;
   }
   .accordion ul > li .title {
-    background-color: rgb(190, 189, 186);
+    background-color: rgb(255, 255, 255);
     width: 100%;
     height: 40px;
     display: flex;
