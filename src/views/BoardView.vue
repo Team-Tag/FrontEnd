@@ -32,7 +32,7 @@
             </tr>
           </tbody>
           <tbody v-else>
-            <td colspan="4">등록한 공지사항이 없습니다.</td>
+            <td colspan="4">등록된 공지사항이 없습니다.</td>
           </tbody>
         </table>
         <!-- 페이지네이션 -->
@@ -58,8 +58,6 @@
 							<p>비밀번호</p>
 							<input type="password" name="passwd" v-model="passwd">
 							<button class = "submit-button" @click="submitLogin">로그인</button>
-							<div>
-							</div>
 						</div>					
 				</div>
 			</div>
@@ -72,6 +70,7 @@
 <script>
 import PageHeader from '@/components/Header.vue'
 import PageFooter from '@/components/Footer.vue'
+
 export default {
   data() {
     return{

@@ -138,19 +138,19 @@ export default {
   }
   #s1:hover{
     position: absolute;
-    left : 40px;
+    left : 35px;
   }
   #s2:hover{
     position: absolute;
-    left : 40px;
+    left : 35px;
   }
   #s3:hover{
     position: absolute;
-    left : 40px;
+    left : 35px;
   }
   #s4:hover{
     position: absolute;
-    left : 40px;
+    left : 35px;
   }
   .scrollMenu{
     position: fixed;

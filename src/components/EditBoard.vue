@@ -1,5 +1,4 @@
 <template>
-  <PageHeader/>
   <div class="Board">
     <div class="Board-Content">
       <h2 class="menu-title">&#60;게시물 작성&#47;&#62;</h2>
@@ -28,17 +27,12 @@
       </div>
     </div>
   </div>  
-  <PageFooter/>
 </template>
 <script>
-import PageHeader from '@/components/Header.vue'
-import PageFooter from '@/components/Footer.vue'
+
 import axios from 'axios';
+
 export default {
-  components :{
-    PageHeader,
-    PageFooter,
-  },
   data(){
     return {
       selectedFile : null,
