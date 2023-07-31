@@ -13,7 +13,7 @@ import EditBoard from '../views/EditBoard.vue'
 import ArticleView from '../views/ArticleView.vue'
 import EditBoard2 from '../views/EditBoard2.vue'
 import EditBoard3 from '../views/EditBoard3.vue'
-
+import FrequentlyQuestion from '../views/FrequentlyQuestion.vue'
 const routes = [
   {
     path: '/',
@@ -90,7 +90,11 @@ const routes = [
     name : 'EditBoard3',
     component : EditBoard3
   },
-
+  {
+    path : '/FrequentlyQuestion',
+    name : 'FrequentlyQuestion',
+    component : FrequentlyQuestion
+  },
 
 ]
 

@@ -170,6 +170,9 @@ export default {
     align-items: center;
     font-size : 25px;
   }
+  .p{
+    width: 100px;
+  }
   .scrollItem .p.active {
   /* 활성화된 섹션의 p 색상 */
     color: white;
