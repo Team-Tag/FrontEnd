@@ -35,6 +35,9 @@
           씨애랑에서 제공하는 다양한 커리큘럼을 통해 프론트 엔드 및<br>
            백엔드 역량을 강화할 수 있습니다</p>
         </div>
+        <div class = "screen2-item2">
+          <img src = "@/assets/강인.jpg">
+        </div>
       </div>
     </section>
     <section class="screen3" ref = "s3">
@@ -149,12 +152,6 @@ export default {
     position: absolute;
     left : 40px;
   }
-  .screen2-content{
-    background-color: red;
-    width: 100%;
-    height: 500px;
-    display: flex;
-  }
   .scrollMenu{
     position: fixed;
     top : 40%;
@@ -204,7 +201,16 @@ export default {
   }
   .screen2-content{
     color : white;
-    
+    background-color: red;
+    width: 100%;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+  }
+  .screen2-item2 img{
+    width: 400px;
+    height: 400px;
+   
   }
 
 </style>

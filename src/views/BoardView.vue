@@ -25,10 +25,10 @@
           </thead>
           <tbody>
             <tr v-for="notice in notices" :key="notice.id">
-              <td style = "width : 50px;">{{ notice.id }}</td>
+              <td style = "width : 50px;">{{ notice.ID }}</td>
               <td style = "width : 400px;">{{ notice.title }}</td>
-              <td style = "width : 50px;">{{ notice.views }}</td>
-              <td style = "width : 150px;">{{ notice.createdAt }}</td>
+              <td style = "width : 50px;">{{ notice.viewCount }}</td>
+              <td style = "width : 150px;">{{ notice.writeTime }}</td>
             </tr>
           </tbody>
         </table>
@@ -71,21 +71,9 @@ import axios from 'axios';
 export default {
   data() {
     return{
-      notices:[
-        { id: 1, title: "샘플 공지사항 1", views: 100, createdAt: "2023-07-28" },
-        { id: 2, title: "샘플 공지사항 2", views: 150, createdAt: "2023-07-27" },
-        { id: 3, title: "샘플 공지사항 3", views: 200, createdAt: "2023-07-26" },
-        { id: 4, title: "샘플 공지사항 4", views: 200, createdAt: "2023-07-25" },
-        { id: 5, title: "샘플 공지사항 5", views: 200, createdAt: "2023-07-24" },
-        { id: 6, title: "샘플 공지사항 6", views: 200, createdAt: "2023-07-23" },
-        { id: 7, title: "샘플 공지사항 7", views: 200, createdAt: "2023-07-22" },
-        { id: 8, title: "샘플 공지사항 8", views: 200, createdAt: "2023-07-21" },
-        { id: 9, title: "샘플 공지사항 9", views: 200, createdAt: "2023-07-20" },
-        { id: 10, title: "샘플 공지사항 10", views: 200, createdAt: "2023-07-19" },
-        { id: 111, title: "샘플 공지사항 11", views: 2000, createdAt: "2023-07-18" },
-      ],
+      notices:[],
       currentPage: 1,
-      totalPages: 4,
+      totalPages: 2,
       isModalOpen : false,
       userid : "",
       passwd : "",
@@ -96,11 +84,11 @@ export default {
     PageFooter,
   },
   methods: {
-    fetchNotices(page) {
-      axios.get(`/api/notices?page=${page}`)
+    fetchNotices() {
+      axios.get(`/api/list`)
         .then(response => {
           this.notices = response.data.content;
-          this.totalPages = response.data.totalPages;
+          // this.totalPages = response.data.totalPages;
         })
         .catch(error => {
           console.error('Error fetching notices:', error);
@@ -114,7 +102,6 @@ export default {
         this.isModalOpen = false;
       },
       submitLogin(){
-      console.log("click");
         if(this.userid == "admin" && this.passwd == "1234"){
           this.$router.push('/Board/EditBoard');
         }
@@ -195,7 +182,6 @@ export default {
     background-color: white;
   }
   .pagination{
-    
     display: flex;
     justify-content: center;
     padding: 0;
