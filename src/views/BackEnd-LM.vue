@@ -2,6 +2,7 @@
     <PageHeader/>
      <div class="RoadMap">
         <h2 class="menu-title">&#60;Back-End&#47;&#62;</h2>
+
         <div class = "RoadMap-container">
           <div class="RoadMap-item">
             <router-link  to="/LoadMap/BackEnd/RoadmapArticle_Back" v-for="(index,imageUrl) in card" :key="imageUrl" class="RoadmapCard" @click="showthis(index)">
@@ -11,6 +12,7 @@
             </router-link>
           </div>
         </div>
+
     </div>
     <PageFooter/>
     
@@ -191,9 +193,9 @@ import '@/assets/font.css';
     font-size: 18px;
     font-weight: 600;
   }
+
   .RoadmapCard p:visited { color:black; }
   .p1{
     color:black; 
   }
-
 </style>

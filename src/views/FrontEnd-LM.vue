@@ -2,6 +2,7 @@
     <PageHeader/>
     <div class="RoadMap">
         <h2 class="menu-title">&#60;Front-End&#47;&#62;</h2>
+
         <div class = "RoadMap-container">
           <div class="RoadMap-item">
             <router-link  to="/LoadMap/FrontEnd/RoadmapArticle_Front" v-for="(index,imageUrl) in card" :key="imageUrl" class="RoadmapCard" @click="showthis(index)">
@@ -11,6 +12,7 @@
             </router-link>
           </div>
         </div>
+
     </div>
     <PageFooter/>
 </template>
@@ -165,13 +167,6 @@ export default {
     margin: 20px;
     margin-bottom: 30px;
    }
-  .RoadMap-router{
-    /* display: flex;
-    flex-wrap: wrap;
-    align-content: flex-start;
-    margin: 20px;
-    margin-bottom: 30px; */
-  }
   .RoadmapCard{
     width: 13vw;
     height: 250px;
@@ -199,6 +194,7 @@ export default {
   .p1{
     color:black; 
   }
+
 
 
 </style>
