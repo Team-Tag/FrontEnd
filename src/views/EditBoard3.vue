@@ -37,7 +37,7 @@ export default {
         this.selectedFile = event.target.files[0];
       },
       uploadData(){
-        const url = '/api/notice/writeNotice3'
+        const url = '/api/notice/writeNotice'
 
         const formData = new FormData();
         formData.append('image', this.selectedFile);

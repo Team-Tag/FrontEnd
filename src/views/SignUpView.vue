@@ -5,6 +5,7 @@
             <div class="menu-title-wrapper">
                 <h2 class="menu-title">&#60;회원가입&#47;&#62;</h2>
             </div>
+            
             <div id = "body">
                 <div class = "content">
                     <h2>Tag팀 계정으로 사용할 이메일<br>

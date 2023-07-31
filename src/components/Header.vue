@@ -32,7 +32,7 @@
                 </router-link>
             </div>
             <div :class= "isHomePage ? 'home-menu-item' : 'menu-item'">
-                <router-link to ='/'>
+                <router-link to ='/ShowWorks'>
                     <div :class= "isHomePage ? 'home-menu-icon' :'menu-icon'">
                         <i class="fa-solid fa-panorama"></i>
                     </div>
@@ -125,6 +125,7 @@ export default{
     color : white;
     margin-top: 3px;
     margin-bottom: 7px;
+    
 }
 .home-menu-icon img{
     width:30px;
@@ -183,66 +184,4 @@ a{
     text-decoration: none;
 }
 
-/*login.css*/
-.login-box-out {
-	height : 400px;
-	padding : 24px;
-	text-align : center;
-	margin-bottom : 20px;
-	width : 350px;
-	background-color : white;
-	border-radius: 8px;
-	box-shadow: 0 0 8px 0 rgba(0,0,0,0.08);
-}
-
-
-.login-porm{
-	margin : 30px 0 0 0;
-}
-
-.login-porm input{
-	width : 312px;
-	height : 40px;
-	font-size : 15px;
-	border-radius: 8px;
-	border: 0.5px solid black; 
-	margin : 0 0 30px 0;
-}
-
-.login-porm p{
-	text-align : left;
-	color : gray;
-	margin-left: 20px;
-	margin-bottom: 10px;
-}
-.modal {
-	position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .modal.show {
-	display: block;
-  }
-
-  .modal_body {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	width: 350px;
-	height: 400px;
-	padding: 40px;
-	text-align: center;
-	background-color: rgb(255, 255, 255);
-	border-radius: 10px;
-	box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
-
-	transform: translateX(-50%) translateY(-50%);
-  }
 </style>

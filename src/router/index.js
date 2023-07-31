@@ -10,6 +10,10 @@ import EditBoard from '../views/EditBoard.vue'
 import ArticleView from '../views/ArticleView.vue'
 import EditBoard2 from '../views/EditBoard2.vue'
 import EditBoard3 from '../views/EditBoard3.vue'
+import RoadmapArticle_Front from '../views/RoadmapArticle_Front.vue'
+import RoadmapArticle_Back from  '../views/RoadmapArticle_Back.vue'
+import ShowWorks from '../views/ShowWorks.vue'
+
 const routes = [
   {
     path: '/',
@@ -37,19 +41,36 @@ const routes = [
     component : LoadMap
   },
   {
+    path : '/ShowWorks',
+    name : 'ShowWorks',
+    component : ShowWorks
+  },
+  {
     path : '/LoadMap/FrontEnd',
     name : 'FrontEnd',
     component : FrontEnd
   },
   {
+
     path : '/Board/EditBoard',
     name : 'EditBoard',
     component : EditBoard,
   },
   {
+    path : '/LoadMap/FrontEnd/RoadmapArticle_Front',
+    name : 'FrontRoadmapArticle',
+    component : RoadmapArticle_Front,
+
+  },
+  {
     path : '/LoadMap/BackEnd',
     name : 'BackEnd',
     component : BackEnd
+  },
+  {
+    path : '/LoadMap/BackEnd/RoadmapArticle_Back',
+    name : 'BackendRoadmapArticle',
+    component : RoadmapArticle_Back,
   },
   {
     path : '/Schedule',
@@ -66,6 +87,7 @@ const routes = [
     name : 'EditBoard3',
     component : EditBoard3
   },
+
 
 ]
 
