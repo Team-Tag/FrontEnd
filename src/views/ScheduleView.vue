@@ -7,10 +7,11 @@
         <div class="calendar">
           <!-- 이전 달 화살표 -->
           <div class="arrow-two">
-            <span class="arrow" @click="changeMonth(-1)">&#8592;</span>
+            <i class="fa-solid fa-angle-left"  @click="changeMonth(-1)"></i>
+            
             <h2>{{ getMonthName(month) }}</h2>
             <!-- 다음 달 화살표 -->
-            <span class="arrow" @click="changeMonth(1)">&#8594;</span>
+            <i class="fa-solid fa-chevron-right"  @click="changeMonth(1)"></i>
           </div>
           
           <table>
@@ -22,13 +23,19 @@
             <tbody>
               <tr v-for="week in getWeeks(month,year)" :key="week">
                 <td v-for="date in getDates(month,year,week)" :key="date">
-                  {{ date }}
-                </td>
+                <span :class="getDateClass(date)">{{ getDateContent(date) }}</span></td>
               </tr>
             </tbody>
           </table>
         </div>
-        <div class="addEvent">여기는 이벤트 추가</div>
+        <div class="addEvent">
+          <ul v-for="event in eventday" :key="event">
+            <li>
+              <span>{{event.name}}</span> <span>{{parseEventDays(event.days)}}</span>
+              
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
@@ -47,9 +54,55 @@ export default {
       year:new Date().getFullYear(),
       month: new Date().getMonth() + 1,
       daysOfWeek:["일", "월", "화", "수", "목", "금", "토"],
+      eventday:[{name:'회식',days:'2023-7-14'},{name:'해커톤',days:'2023-7-31~2023-8-1'},
+      {name:"여행",days:'2023-8-4~2023-8-9'}]
     };
   },
   methods:{
+     getDateContent(date) {
+    if (date === null) return '';
+
+    const day = new Date(this.year, this.month - 1, date).getDate();
+    const dateString = `${this.year}-${this.month}-${day}`;
+
+    const event = this.eventday.find((item) => {
+      if (item.days.includes('~')) {
+        const [startDate, endDate] = item.days.split('~');
+        const startDateObj = new Date(startDate);
+        const endDateObj = new Date(endDate);
+        const currentDateObj = new Date(dateString);
+        return currentDateObj >= startDateObj && currentDateObj <= endDateObj;
+      } else {
+        return item.days === dateString;
+      }
+    });
+
+    if (event) {
+      // 이벤트가 있는 날이면 이벤트 이름과 날짜를 함께 반환
+      return `${day}일 ${event.name} `;
+    } else {
+      // 이벤트가 없는 날은 날짜만 반환
+      return day;
+    }
+  },
+  getDateClass(date) {
+    const day = new Date(this.year, this.month - 1, date).getDate();
+    const dateString = `${this.year}-${this.month}-${day}`;
+
+    const event = this.eventday.find((item) => {
+      if (item.days.includes('~')) {
+        const [startDate, endDate] = item.days.split('~');
+        const startDateObj = new Date(startDate);
+        const endDateObj = new Date(endDate);
+        const currentDateObj = new Date(dateString);
+        return currentDateObj >= startDateObj && currentDateObj <= endDateObj;
+      } else {
+        return item.days === dateString;
+      }
+    });
+
+    return event ? 'event-date' : 'regular-date';
+  },
     getMonthName(month){
       const months=["1월","2월","3월","4월","5월","6월","7월","8월","9월"
       ,"10월","11월","12월"];
@@ -97,9 +150,28 @@ export default {
     else{
       this.month=newMonth;
     }
-  }
   },
- 
+   parseEventDays(days) {
+      if (days.includes('~')) {
+        const [startDate, endDate] = days.split('~');
+        const [startYear, startMonth, startDay] = startDate.split('-');
+        const [endYear, endMonth, endDay] = endDate.split('-');
+
+        if (startMonth === endMonth && startYear === endYear) {
+          // 시작일과 종료일의 달과 년도가 같은 경우
+          return `${parseInt(startMonth)}월 ${parseInt(startDay)}일부터 ${parseInt(endDay)}일까지`;
+        } else {
+          // 달과 년도가 다른 경우
+          return `${parseInt(startMonth)}월 ${parseInt(startDay)}일부터 ${parseInt(endMonth)}월 ${parseInt(endDay)}일까지`;
+        }
+      } else {
+        // 단일 날짜인 경우
+        const [year,month, day] = days.split('-');
+        year==0
+        return `${parseInt(month)}월 ${parseInt(day)}일`;
+      }
+    },
+  },
 };
 /**
  * 달력 표시 
@@ -124,17 +196,21 @@ export default {
 
 <style scoped>
   .Schedule{padding-top: 100px;
+
     background-color: #F2F2F2;
     width : 100%;
     height: 1300px;
   }
+  
+ 
   .calendar-box{
+    margin-top: 20px;
     display: flex;
   }
   .calendar{
     width: 50vw; height: 65vh;
     margin-left: 5vw;
-    background-color: lightpink;  
+    background-color: rgb(216, 216, 216);  
   }
   .addEvent{
     width: 40vw; height: 65vh;
@@ -146,6 +222,10 @@ export default {
     justify-content: center;
     align-content: center;
     align-items: center;
+  }
+  .arrow-two h2{
+    display: inline-block;
+    width: 10vw;
   }
   table{
     font-size: 30px;
@@ -159,4 +239,41 @@ export default {
    width: 90px;
    height: 50px;
   }
+   .event-date {
+  /* 이벤트 날짜에 대한 스타일을 지정하세요. 예: 이벤트 날짜는 굵은 글꼴(bold)로 표시 */
+  font-weight: bold;
+  font-size: 16px;
+  color: rgb(120, 118, 118); /* 예: 이벤트 날짜는 빨간색으로 표시 */
+}
+
+.regular-date {
+  /* 일반 날짜에 대한 스타일을 지정하세요. 예: 일반 날짜는 기본 글꼴(normal)로 표시 */
+  font-weight: normal;
+  
+  color: black; /* 예: 일반 날짜는 검정색으로 표시 */
+}
+ul{
+  font-size: 20px;
+  margin-top: 10px;
+  align-content: center;
+  height:100px;
+ 
+}
+li{
+  line-height: 20px;
+  list-style: none;
+  float: left;
+  
+  /* width: 100%;
+  height: 7vh;
+  text-align: center;
+  align-content: center; */
+  
+}
+.addEvent span:last-child{
+  margin-left: 10px;
+  display: inline-block;
+  width: 300px;
+  text-align: left;
+}
 </style>

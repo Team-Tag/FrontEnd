@@ -5,22 +5,80 @@
     <div class="accordion">
         <p>태그팀에 대해 자주 문의하는 질문을 정리해 보았습니다.</p>
         <p>질문을 클릭해 답변을 확인 해주세요</p>
+        <!-- 1. 워크샵은 어떤 활동을 하나요?
+2.워크샵은 언제 하나요?
+3.회장님 잘생겼나요?
+4.회식 자주 있나요?
+5.뷰나 리엑트 같은 심화된 내용을 배우나요?
+6. 소프트웨어 전시회는 뭔가요?
+7.소프트웨어 전시회는 언제인가요?
+8.겨울방학때는 어떤 활동을 하나요?
+9.신입생 교육때 어떤 내용을 배우나요?
+10.태그팀 신규부원 모집은 언제인가요?  
+
+1. 워크샵은 주로 특정 주제에 대해 심도 있게 다루는 집중 학습 세션이나, 팀워크와 협업 능력을 향상시키는 팀 빌딩 활동 등을 수행합니다.
+
+2. 하계 워크샵은 보통 1학기 종강후 약 1주후에 실시합니다.
+
+3. 회장님의 외모는 개인의 주관에 따라 다르게 느껴질 수 있습니다. 저는 잘 생겼다고 생각합니다.
+
+4. 매 학기 보통 1회~2회 정도 진행하는 것 같습니다. 정말 재밌습니다!
+
+5. 뷰나 리액트 같은 프론트엔드 프레임워크에 대한 교육은 고급 수준의 웹 개발 학습으로, JS 기초가 어느 정도 학습되신 분들은 강의를 통해 프레임워크에 입문하실 수 있습니다.
+
+6. 소프트웨어 전시회는 개발자들이 자신들의 프로젝트나 소프트웨어를 공개하고, 이를 통해 피드백을 받거나 네트워킹을 하는 행사입니다.
+
+7. 보통 2학기 기말고사 쯤에 진행됩니다. 시험과 동시에 준비하다 보면 바빠질 수 있으니, 팀원들과 미리미리 준비하시는게 
+꿀팁입니다!
+
+8 (삭제함 ㅅㄱ)
+
+ 9. 신입생 교육에서는 자바프로그래밍 기초를 다룹니다. 신입생들은 궁금하신 내용을 선배들에게 질문해볼 수 있습니다.
+    
+10태그팀 신규 부원 모집은 5월초에 이루어 집니다. 하지만, 구체적인 일정은 조직의 상황에 따라 달라질 수 있으므로, 정확한 정보는 조직의 공식 안내나 공지를 참조해야 합니다.-->
         <ul>
             <li :class="{'on': activeIndex === 0}" @click="toggleAccordion(0)">
-                <div class="title"><span>아코디언을 만드는 방법을 알려주세요</span> <i class="fa-solid fa-sort-down"></i></div>
-                <div class="desc">JavaScript는 HTML과 CSS를 조작하거나, 이벤트를 처리하기 위한 프로그래밍 언어입니다. 
-                    이번 예제에서는 각 제목 요소에 click 이벤트를 추가하고, 
-                    클릭된 항목과 나머지 항목의 클래스를 조작하여 아코디언 메뉴의 동작을 구현하는 JavaScript 코드를 간단히 설명하겠습니다.
-                    먼저, 아코디언 메뉴를 담고 있는 div 요소를 찾아 변수에 할당합니다.
+                <div class="title"><span>워크샵은 어떤 활동을 하나요?</span> <i class="fa-solid fa-sort-down"></i></div>
+                <div class="desc">
+                  워크샵은 주로 특정 주제에 대해 심도 있게 다루는 집중 학습 세션이나, 팀워크와 협업 능력을 향상시키는 팀 빌딩 활동 등을 수행합니다.
+
                 </div>
             </li>
             <li :class="{'on': activeIndex === 1}" @click="toggleAccordion(1)">
-                <div class="title"><span>제목2</span> <i class="fa-solid fa-sort-down"></i></div>
-                <div class="desc">내용2</div>
+                <div class="title"><span>워크샵은 언제 하나요?</span> <i class="fa-solid fa-sort-down"></i></div>
+                <div class="desc">하계 워크샵은 보통 1학기 종강후 약 1주후에 실시합니다.</div>
             </li>
             <li :class="{'on': activeIndex === 2}" @click="toggleAccordion(2)">
-                <div class="title"><span>제목3</span> <i class="fa-solid fa-sort-down"></i></div>
-                <div class="desc">내용3</div>
+                <div class="title"><span>회장님 잘생겼나요?</span> <i class="fa-solid fa-sort-down"></i></div>
+                <div class="desc">회장님의 외모는 개인의 주관에 따라 다르게 느껴질 수 있습니다. 저는 잘 생겼다고 생각합니다.
+                </div>
+            </li>
+             <li :class="{'on': activeIndex === 3}" @click="toggleAccordion(3)">
+                <div class="title"><span>회식 자주 있나요?</span> <i class="fa-solid fa-sort-down"></i></div>
+                <div class="desc">매 학기 보통 1회~2회 정도 진행하는 것 같습니다. 정말 재밌습니다!</div>
+            </li>
+             <li :class="{'on': activeIndex === 4}" @click="toggleAccordion(4)">
+                <div class="title"><span>뷰나 리엑트 같은 심화된 내용을 배우나요?</span> <i class="fa-solid fa-sort-down"></i></div>
+                <div class="desc">뷰나 리액트 같은 프론트엔드 프레임워크에 대한 교육은 고급 수준의 웹 개발 학습으로, JS 기초가 어느 정도 학습되신 분들은 강의를 통해 프레임워크에 입문하실 수 있습니다.
+</div>
+            </li>
+             <li :class="{'on': activeIndex === 5}" @click="toggleAccordion(5)">
+                <div class="title"><span>소프트웨어 전시회는 뭔가요?
+</span> <i class="fa-solid fa-sort-down"></i></div>
+                <div class="desc">소프트웨어 전시회는 개발자들이 자신들의 프로젝트나 소프트웨어를 공개하고, 이를 통해 피드백을 받거나 네트워킹을 하는 행사입니다.
+</div>
+            </li>
+             <li :class="{'on': activeIndex === 6}" @click="toggleAccordion(6)">
+                <div class="title"><span>소프트웨어 전시회는 언제인가요?
+</span> <i class="fa-solid fa-sort-down"></i></div>
+                <div class="desc">보통 2학기 기말고사 쯤에 진행됩니다. 시험과 동시에 준비하다 보면 바빠질 수 있으니, 팀원들과 미리미리 준비하시는게 
+꿀팁입니다!</div>
+            </li>
+           
+             
+             <li :class="{'on': activeIndex === 7}" @click="toggleAccordion(7)">
+                <div class="title"><span>신규부원 모집은 언제하나요?</span> <i class="fa-solid fa-sort-down"></i></div>
+                <div class="desc">태그팀 신규 부원 모집은 5월초에 이루어 집니다. 하지만, 구체적인 일정은 조직의 상황에 따라 달라질 수 있으므로, 정확한 정보는 조직의 공식 안내나 공지를 참조해야 합니다.</div>
             </li>
         </ul>
     </div>
@@ -57,7 +115,7 @@ export default {
   .Question {
     background-color: #F2F2F2;
     width: 100%;
-    height: 1024px;
+    height: 3024px;
     padding-top: 100px;
   }
   /* .LoadMap-Content {
