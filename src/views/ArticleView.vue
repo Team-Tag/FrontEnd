@@ -35,7 +35,7 @@ import axios from 'axios';
 export default {
   data(){
     return{
-      notice : null,
+      notice : [],
     };
   },
   created() {
