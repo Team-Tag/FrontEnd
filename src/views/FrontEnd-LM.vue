@@ -17,8 +17,7 @@
 <script>
 import PageHeader from '@/components/Header.vue'
 import PageFooter from '@/components/Footer.vue'
-import '@/assets/font.css'
-// import {mapState,mapMutations} from 'vuex'
+/// import {mapState,mapMutations} from 'vuex'
 
 export default {
   components :{
@@ -42,34 +41,17 @@ export default {
     }
    },
     methods:{
-    //vuex의 mutations를 해당 컴포넌트의 methods속성에 매핑
-    // ...mapMutations(['VIEW_COUNT_UP_FRONT']), //상태 변경
-    // async getData(){
-    //   try{
-    //     const response = await this.$axios.get("/api/board/frontlist");
-    //     this.card=response.data;
-    //     console.log(response.data);
-    //     console.log(this.card);
-    //     console.log("성공");
-    //   }
-    //   catch(error){
-    //     console.log("에러"+error);
-    //   }
-    // },
-   showthis(index){//카드 클릭시 다음 페이지로 넘길 데이터 정의 라우터 푸시로 넘김 
-    //  this.VIEW_COUNT_UP_FRONT(index.index);//상태변경 함수에 인덱스 전달 -> 해당 인덱스의 카운트 증가 
-     this.$router.push({ name: 'FrontRoadmapArticle', params: { title: index.title,  url:index.url,  article:index.article} });
-    //  ,index:index.index 
-   },
-   
-  
+      showthis(index){//카드 클릭시 다음 페이지로 넘길 데이터 정의 라우터 푸시로 넘김 
+        //  this.VIEW_COUNT_UP_FRONT(index.index);//상태변경 함수에 인덱스 전달 -> 해당 인덱스의 카운트 증가 
+        this.$router.push({ name: 'FrontRoadmapArticle', params: { title: index.title,  url:index.url,  article:index.article} });
+        //  ,index:index.index 
+      },
   }
 };
 </script>
 
 <style scoped>
-*{font-family: 'NeoDunggeunmoPro-Regular';}
-  .RoadMap{
+ .RoadMap{
     background-color: #F2F2F2;
     width : 100%;
     height: 1524px;

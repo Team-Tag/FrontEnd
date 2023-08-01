@@ -1,7 +1,7 @@
 <template>
     <PageHeader/>
     <div class="Question">
-        <h2 class="menu-title">&#60;자주하는 질문&#47;&#62;</h2>
+        <h1 class="menu-title">&#60;자주하는 질문&#47;&#62;</h1>
     <div class="accordion gradient01">
         <p>태그팀에 대해 자주 문의하는 질문을 정리해 보았습니다.</p>
         <p>질문을 클릭해 답변을 확인 해주세요</p>
@@ -83,17 +83,16 @@ export default {
 <style scoped>
   .Question {
     background-color: #F2F2F2;
-    width: 100%;
-    height: 3024px;
+    width: 100vw;
+    height: 1024px;
     padding-top: 100px;
+    overflow-x: hidden;
   }
   /* .LoadMap-Content {
     display: flex;
     justify-content: center;
   } */
-  .menu-title {
-    font-size: 40px;
-  } 
+ 
   .accordion {
     margin: auto;
     margin-top: 20px;

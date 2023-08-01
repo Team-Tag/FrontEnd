@@ -59,9 +59,11 @@
       <div class="screen-content">
         <div class = "screen-item">
           <h2>어떻게 활동 하나요?</h2>
-          <p>'Tag' 는 웹(WEB)프로그램의 전반적인 흐름을 이해하기 위해 HTML,
-          CSS, JavaScript 등을 통해 웹(WEB)프로그램 제작 및 설계 과정을 학습합니다. 
-          씨애랑에서 제공하는 다양한 커리큘럼을 통해 프론트 엔드 및 백엔드 역량을 강화할 수 있습니다</p>
+          <p style="font-size:20px">'Tag'팀은 신입생 교육, 개인 공부 등으로 실력을 쌓은 후, 하계 방학 워크샵에서 개인 또는 팀 프로젝트를 진행합니다.
+            또한 하계 방학 워크샵애서는 소프트웨어 전시회를 준비하기 위해 팀 구성, 계획을 하며 워크샵 마지막에는 씨애랑 자체 해커톤을 
+            진행하여 개인 역량을 가오하 할 수 있습니다.
+
+          </p>
         </div>
         <div class = "screen3-item2"> 
           <!-- 슬라이더 -->
@@ -73,7 +75,7 @@
       <div class="screen-content">
         <div class = "screen-item">
           <h2>때로는 놀기도 하는!</h2>
-          <p>저희는 가끔 모여서 놀기도 합니다ㅎㅎ</p>
+          <p>선/후배 간의 친목을 다지기 위해 때로는 회식과 미니게임과 같은 활동으로 </p>
         </div>
         <div class = "screen4-item2"> 
           <!-- 슬라이더 -->
@@ -139,12 +141,13 @@ export default {
 };
 </script>
 <style scoped lang="scss">
+
   .home{
     width: 100%;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    
+    overflow-x:hidden;
   }
   section{
     width : 100vw;

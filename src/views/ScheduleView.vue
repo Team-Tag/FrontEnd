@@ -2,7 +2,7 @@
   <PageHeader/>
   <div class="Schedule">
     <div class="Schedule-Content">
-      <h1>Schedule</h1>
+      <h1>&#60; 일정 &#47;&#62;</h1>
       <div class="calendar-box">
         <div class="calendar">
           <!-- 이전 달 화살표 -->
@@ -202,7 +202,7 @@ export default {
     
   
     .calendar-box{
-      margin-top: 20px;
+      margin-top: 30px;
       display: flex;
     }
     .calendar{

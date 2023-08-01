@@ -28,7 +28,7 @@ export default {
   },
   data(){
     return{ //backend 배열로 새로 저장해야 함 
-
+      card:[],
     }
   },
   async mounted(){

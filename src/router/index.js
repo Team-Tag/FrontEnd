@@ -6,13 +6,13 @@ import LoadMap from '../views/LoadMapView.vue'
 import Schedule from '../views/ScheduleView.vue'
 import FrontEnd from '../views/FrontEnd-LM.vue'
 import BackEnd from '../views/BackEnd-LM.vue'
-import EditBoard from '../views/EditBoardView.vue'
-import ArticleView from '../views/ArticleView.vue'
+
 import RoadmapArticle_Front from '../views/RoadmapArticle_Front.vue'
 import RoadmapArticle_Back from  '../views/RoadmapArticle_Back.vue'
 import ShowWorks from '../views/ShowWorks.vue'
+import ArticleView from '../views/ArticleView.vue'
 import FrequentlyQuestion from '../views/FrequentlyQuestion.vue'
-import TestView from '../views/TestView.vue'
+import EditBoard from '../views/EditBoardView.vue'
 const routes = [
   {
     path: '/',
@@ -50,16 +50,15 @@ const routes = [
     component : FrontEnd
   },
   {
+    path : '/LoadMap/FrontEnd/RoadmapArticle_Front',
+    name : 'FrontRoadmapArticle',
+    component : RoadmapArticle_Front,  
+  },
+  {
     path : '/Board/EditBoard/:id',
     name : 'EditBoardId',
     component : EditBoard,
   },
-  {
-    path : '/LoadMap/FrontEnd/RoadmapArticle_Front',
-    name : 'FrontRoadmapArticle',
-    component : RoadmapArticle_Front,
-  },
-
   {
     path : '/LoadMap/BackEnd',
     name : 'BackEnd',
@@ -80,14 +79,7 @@ const routes = [
     name : 'FrequentlyQuestion',
     component : FrequentlyQuestion
   },
-  {
-    path : '/Test',
-    name : 'Test',
-    component : TestView
-  }
-
 ]
-
 const router = createRouter({
   history: createWebHashHistory(),
   routes
