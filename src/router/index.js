@@ -11,7 +11,8 @@ import ArticleView from '../views/ArticleView.vue'
 import RoadmapArticle_Front from '../views/RoadmapArticle_Front.vue'
 import RoadmapArticle_Back from  '../views/RoadmapArticle_Back.vue'
 import ShowWorks from '../views/ShowWorks.vue'
-import TestView from '../views/testView.vue'
+import FrequentlyQuestion from '../views/FrequentlyQuestion.vue'
+
 const routes = [
   {
     path: '/',
@@ -34,11 +35,6 @@ const routes = [
     component : ArticleView
   },
   {
-    path : '/Test',
-    name : 'Test',
-    component : TestView
-  },
-  {
     path : '/LoadMap',
     name : 'LoadMap',
     component : LoadMap
@@ -54,11 +50,6 @@ const routes = [
     component : FrontEnd
   },
   {
-    path : '/Board/EditBoard',
-    name : 'EditBoard',
-    component : EditBoard,
-  },
-  {
     path : '/Board/EditBoard/:id',
     name : 'EditBoardId',
     component : EditBoard,
@@ -67,8 +58,8 @@ const routes = [
     path : '/LoadMap/FrontEnd/RoadmapArticle_Front',
     name : 'FrontRoadmapArticle',
     component : RoadmapArticle_Front,
-
   },
+
   {
     path : '/LoadMap/BackEnd',
     name : 'BackEnd',
@@ -83,6 +74,11 @@ const routes = [
     path : '/Schedule',
     name : 'Schedule',
     component : Schedule
+  },
+  {
+    path : '/FrequentlyQuestion',
+    name : 'FrequentlyQuestion',
+    component : FrequentlyQuestion
   },
 
 ]

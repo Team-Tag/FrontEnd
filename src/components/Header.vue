@@ -31,6 +31,7 @@
                     <span>로드맵</span>
                 </router-link>
             </div>
+
             <div :class= "isHomePage ? 'home-menu-item' : 'menu-item'">
                 <router-link to ='/ShowWorks'>
                     <div :class= "isHomePage ? 'home-menu-icon' :'menu-icon'">
@@ -48,7 +49,7 @@
                 </router-link>
             </div>
             <div :class= "isHomePage ? 'home-menu-item' : 'menu-item'">
-                <router-link to = '/'>
+                <router-link to = '/FrequentlyQuestion'>
                     <div :class= "isHomePage ? 'home-menu-icon' :'menu-icon'">
                         <img src = "@/assets/Q&A.svg">
                     </div>
@@ -183,5 +184,4 @@ export default{
 a{
     text-decoration: none;
 }
-
 </style>
