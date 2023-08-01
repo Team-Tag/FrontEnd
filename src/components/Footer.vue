@@ -5,6 +5,7 @@
             <p>대표 033-248-1000</p>
             <p>HALLYM UNIVERSITY C · AERANG TEAM TAG</p>
         </div>
+        <button @click="showLogIn">관리자 모드</button>
     </footer>
 </template>
 
@@ -41,5 +42,8 @@ export default {
   }
   .home-footer p{
     color : white;
+  }
+  button{
+    background-color: rgb(155, 172, 203);
   }
 </style>
