@@ -289,7 +289,7 @@ export default {
     }
   .addEvent span:first-child{
     width: 190px;
-    background-color: rgb(255, 255, 255);
+    background-color: white;
   }
   .addEvent span:last-child{
     margin-top: 10px;
