@@ -12,7 +12,7 @@ import RoadmapArticle_Front from '../views/RoadmapArticle_Front.vue'
 import RoadmapArticle_Back from  '../views/RoadmapArticle_Back.vue'
 import ShowWorks from '../views/ShowWorks.vue'
 import FrequentlyQuestion from '../views/FrequentlyQuestion.vue'
-
+import TestView from '../views/TestView.vue'
 const routes = [
   {
     path: '/',
@@ -80,6 +80,11 @@ const routes = [
     name : 'FrequentlyQuestion',
     component : FrequentlyQuestion
   },
+  {
+    path : '/Test',
+    name : 'Test',
+    component : TestView
+  }
 
 ]
 

@@ -39,7 +39,7 @@
       </div>
       <div class="pagination">
         <ul>
-            <li v-for="page in totalPages" :key="page" @click="goToPage(page)">
+            <li v-for="page in getTotalPages" :key="page" @click="goToPage(page)">
                 {{ page }}
             </li>
         </ul>
@@ -70,6 +70,7 @@
 <script>
 import PageHeader from '@/components/Header.vue'
 import PageFooter from '@/components/Footer.vue'
+import { mapGetters } from 'vuex';
 
 export default {
   data() {
@@ -90,12 +91,13 @@ export default {
     },
     hasNotices() {
       return this.$store.getters.hasNotices; // Vuex 스토어의 hasNotices getter 사용
-    }
+    },
+    ...mapGetters(['getTotalPages']),
 
   },
   created() {
       this.$store.dispatch('fetchNotices'); // 공지사항 데이터를 서버로부터 가져오기
-      
+      console.log("createdㅋㅋㅋㅋ");
   },  
   methods: {
       closeModal(){
@@ -109,11 +111,11 @@ export default {
       goToNoticeDetail(noticeId) {
         this.$router.push(`/Board/${noticeId}`);
       },
-      goToPage(page) {
-      if (page >= 1 && page <= this.totalPages) {
-        this.page = page; // 현재 페이지 변경
-        this.$store.dispatch('fetchNotices', page); // 해당 페이지의 공지사항 데이터를 서버로부터 가져오기
-      }
+      goToPage(page){
+        // if (page >= 1 && page <= this.totalPages) {
+          this.page = page; // 현재 페이지 변경
+          this.$store.dispatch('fetchNotices', this.page); // 해당 페이지의 공지사항 데이터를 서버로부터 가져오기
+        // }
     },
   },
 };

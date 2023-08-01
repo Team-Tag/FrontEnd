@@ -15,9 +15,6 @@ const store = createStore({
       state.notices = noticeListDTOS;
       state.totalPages = totalPages;
     },
-    setCurrentPage(state, page) {
-      state.page = page;
-    },
   },
   actions: {
     fetchNotices({ commit }, page) {
@@ -34,8 +31,10 @@ const store = createStore({
   getters: {
     hasNotices(state) {
       return state.notices.length > 0; // 게시물이 있는지 여부를 확인하여 반환
-    }
-    
+    },
+    getTotalPages(state) {
+      return state.totalPages;
+    },
   },
 });
 export default store;
