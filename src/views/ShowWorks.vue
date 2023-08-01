@@ -243,7 +243,8 @@ export default {
     width: 400px;
     height: 400px;
     border-radius: 10px 0px 0px 10px;
-    background-size: cover;
+     background-size:cover;
+      background-position: center;
   }
   .WorkArticle{
     margin-top:60px;

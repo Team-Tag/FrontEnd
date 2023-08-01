@@ -6,7 +6,7 @@
       <div class="calendar-box">
         <div class="calendar">
           <!-- 이전 달 화살표 -->
-          <div class="arrow-two">
+          <div class="arrow-two ">
             <i class="fa-solid fa-angle-left"  @click="changeMonth(-1)"></i>
             
             <h2>{{ getMonthName(month) }}</h2>
@@ -28,7 +28,7 @@
             </tbody>
           </table>
         </div>
-        <div class="addEvent">
+        <div class="addEvent gradient01" >
           <ul v-for="event in eventday" :key="event">
             <li>
               <span>{{event.name}}</span> <span>{{parseEventDays(event.days)}}</span>
@@ -55,7 +55,8 @@ export default {
       month: new Date().getMonth() + 1,
       daysOfWeek:["일", "월", "화", "수", "목", "금", "토"],
       eventday:[{name:'회식',days:'2023-7-14'},{name:'해커톤',days:'2023-7-31~2023-8-1'},
-      {name:"여행",days:'2023-8-4~2023-8-9'}]
+      {name:"개강",days:'2023-8-28'},
+      {name:"추석 연휴",days:'2023-9-28~2023-9-30'}]
     };
   },
   methods:{
@@ -288,11 +289,12 @@ export default {
     }
   .addEvent span:first-child{
     width: 190px;
-    background-color: gainsboro;
+    background-color: rgb(240, 240, 240);
   }
   .addEvent span:last-child{
     margin-top: 10px;
     margin-left: 10px;
     text-align: center;
   }
+  .gradient01{  background : linear-gradient(to left, #b8ceef 0%, #C0F5FB 100%);}
 </style>

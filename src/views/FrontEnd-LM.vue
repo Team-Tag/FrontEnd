@@ -5,7 +5,7 @@
 
         <div class = "RoadMap-container">
           <div class="RoadMap-item">
-            <router-link  to="/LoadMap/FrontEnd/RoadmapArticle_Front" v-for="(index,imageUrl) in card" :key="imageUrl" class="RoadmapCard" @click="showthis(index)">
+            <router-link  to="/LoadMap/FrontEnd/RoadmapArticle_Front" v-for="(index,imageUrl) in card" :key="imageUrl" class="RoadmapCard " @click="showthis(index)">
                         <!-- 여기서 for돌리면서 해당 index를 바뀔때마다 vuex 상태에 저장하면  -->
                         <img :src="require(`@/assets/${index.url}`)"> 
                         <p class="p1">{{index.title}}</p>
