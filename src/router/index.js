@@ -56,12 +56,12 @@ const routes = [
     component : RoadmapArticle_Front,  
   },
   {
-    path : '/Board/EditBoard',
+    path : '/Board/EditBoard', //있어야됨 새게시글 작성
     name : 'EditBoard',
     component : EditBoard,
   },
   {
-    path : '/Board/EditBoard/:id',
+    path : '/Board/EditBoard/:id', //있어야됨 수정 삭제 
     name : 'EditBoardId',
     component : EditBoard,
   },
