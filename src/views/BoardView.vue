@@ -77,8 +77,7 @@ export default {
       isModalOpen : false,
       userid : "",
       passwd : "",
-      currentPage: 1,
-      totalPages: 2,
+      page : 1,
     };
   },
   components :{
@@ -110,6 +109,12 @@ export default {
       goToNoticeDetail(noticeId) {
         this.$router.push(`/Board/${noticeId}`);
       },
+      goToPage(page) {
+      if (page >= 1 && page <= this.totalPages) {
+        this.page = page; // 현재 페이지 변경
+        this.$store.dispatch('fetchNotices', page); // 해당 페이지의 공지사항 데이터를 서버로부터 가져오기
+      }
+    },
   },
 };
 </script>

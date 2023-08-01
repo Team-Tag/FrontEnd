@@ -12,18 +12,18 @@ const store = createStore({
     totalPages: 0,
   },
   mutations: {
-    setNotices(state, notices) {
-      state.notices = notices.noticeListDTOS;
-      state.totalPages = notices.totalPages;
+    setNotices(state, {noticeListDTOS, totalPages}) {
+      state.notices = noticeListDTOS;
+      state.totalPages = totalPages;
     },
     setCurrentPage(state, page) {
-      state.currentPage = page;
+      state.page = page;
     },
   },
   actions: {
-    fetchNotices({ commit }) {
+    fetchNotices({ commit }, page) {
       // 서버로부터 공지사항 데이터를 가져오는 비동기 작업
-      axios.get('/api/notice/list')
+      axios.get(`/api/notice/list?page=${page-1}`)
         .then(response => {
           commit('setNotices', response.data); // 받아온 데이터를 스토어에 저장
         })
