@@ -15,7 +15,10 @@ const store = createStore({
     setNotices(state, notices) {
       state.notices = notices.noticeListDTOS;
       state.totalPages = notices.totalPages;
-    }
+    },
+    setCurrentPage(state, page) {
+      state.currentPage = page;
+    },
   },
   actions: {
     fetchNotices({ commit }) {

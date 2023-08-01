@@ -121,15 +121,15 @@ export default {
       },
       async updateData(){
         try{
-          const url = `/api/notice/updateNotice/${this.noticeId}`;
+          const url = `/api/notice/updateNotice`;
           const jsonData = {
             title: this.board.title,
             contents: this.board.contents,
             link: this.board.link,
+            id : this.noticeId,
           };
 
           const formData = new FormData();
-          formData.append('id', this.noticeId)
           formData.append('jsonData', JSON.stringify(jsonData));
           formData.append('image', this.selectedFile);
 

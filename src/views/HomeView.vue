@@ -21,33 +21,53 @@
       <div class = "bar"></div>
     </div>
     <section class="screen1" ref = "s1">
-      <div class="content-wrapper">
-        
+      <video muted autoplay loop>
+        <source src="@/assets/screen1.mp4" type="video/mp4">
+        <strong>Your browser does not support the video tag.</strong>
+      </video>
+      <div class="jb-text">
+        <p>&#60;TEAM TAG&#47;&#62;</p>
       </div>
     </section>
     <section class="screen2" ref = "s2">
-      <div class="screen2-content">
-        <div class = "screen2-item">
+      <div class="screen-content">
+        <div class = "screen-item">
           <h2>Tag팀은 무엇을 하나요?</h2>
-          <p>'Tag' 는 웹(WEB)프로그램의 전반적인 흐름을 이해<br>
-          하기 위해 HTML, CSS, JavaScript 등을 통해 웹(WEB)<br>
-          프로그램 제작 및 설계 과정을 학습합니다. <br>
-          씨애랑에서 제공하는 다양한 커리큘럼을 통해 프론트 엔드 및<br>
-           백엔드 역량을 강화할 수 있습니다</p>
+          <p>'Tag' 는 웹(WEB)프로그램의 전반적인 흐름을 이해
+          하기 위해 HTML, CSS, JavaScript 등을 통해 웹
+          (WEB)프로그램 제작 및 설계 과정을 학습합니다.
+          씨애랑에서 제공하는 다양한 커리큘럼을 통해 프론트
+           엔드 및 백엔드 역량을 강화할 수 있습니다</p>
         </div>
         <div class = "screen2-item2">
-          <img src = "@/assets/강인.jpg">
+          <img src = "@/assets/screen2.jpg">
         </div>
       </div>
     </section>
     <section class="screen3" ref = "s3">
-      <div class="content-wrapper">
-
+      <div class="screen-content">
+        <div class = "screen-item">
+          <h2>어떻게 활동 하나요?</h2>
+          <p>'Tag' 는 웹(WEB)프로그램의 전반적인 흐름을 이해하기 위해 HTML,
+          CSS, JavaScript 등을 통해 웹(WEB)프로그램 제작 및 설계 과정을 학습합니다. 
+          씨애랑에서 제공하는 다양한 커리큘럼을 통해 프론트 엔드 및 백엔드 역량을 강화할 수 있습니다</p>
+        </div>
+        <div class = "screen3-item2"> 
+          <!-- 슬라이더 -->
+        </div>
       </div>
     </section>
     <section class="screen4" ref = "s4">
       <div class="content-wrapper" style = "flex : 1;">
-
+      <div class="screen-content">
+        <div class = "screen-item">
+          <h2>때로는 놀기도 하는!</h2>
+          <p>저희는 가끔 모여서 놀기도 합니다ㅎㅎ</p>
+        </div>
+        <div class = "screen4-item2"> 
+          <!-- 슬라이더 -->
+        </div>
+      </div>
       </div>
       <PageFooter/>
     </section>
@@ -116,11 +136,25 @@ export default {
     
   }
   section{
-    width : 100%;
+    width : 100vw;
     height : 100vh;
   }
   .screen1{
-    background-color: rgb(52, 76, 129);
+    overflow: hidden;
+    margin: 0px auto; 
+    position: relative;
+  }
+  .jb-text{
+    position: absolute;
+    top: 50%; 
+    width: 100%;
+  }
+  .jb-text p{
+    margin-top: -24px; 
+    text-align: center; 
+    font-weight: 800;
+    font-size: 70px; 
+    color: #ffffff;
   }
   .screen2{
     background-image: url("@/assets/BackImg1.jpeg");
@@ -199,19 +233,42 @@ export default {
     top : 20px;
     left: 9px;
   }
-  .screen2-content{
-    color : white;
-    background-color: red;
+  .screen-content{
+
     width: 100%;
-    height: 500px;
+    height: 100%;
     display: flex;
-    justify-content: center;
+    align-items: center;
+    margin-left: 300px;
+  }
+  .screen-content .screen-item{
+    margin : 20px 20px 20px 20px;
+    height: 40vh;
+  }
+  .screen-item h2{
+    font-size: 4.5vh;
+    margin-bottom: 80px;
+    text-align: left;
+    color : white;
+  }
+  .screen-item p{
+    font-size: 25px;
+    text-align: left;
+    color : white;
+    width : 50vh;
+  }
+  .screen-content .screen2-item2{
+    margin: 20px;
   }
   .screen2-item2 img{
-    width: 400px;
+    width: 700px;
     height: 400px;
    
   }
-
+  video{
+    width : 100vw;
+    height : 100vh;
+    object-fit: fill;
+  }
 </style>
 

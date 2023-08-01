@@ -39,9 +39,9 @@
       </div>
       <div class="pagination">
         <ul>
-            <!-- <li v-for="page in totalPages" :key="page" @click="goToPage(page)">
+            <li v-for="page in totalPages" :key="page" @click="goToPage(page)">
                 {{ page }}
-            </li> -->
+            </li>
         </ul>
       </div>
       <div class = "NewPost">
@@ -77,6 +77,8 @@ export default {
       isModalOpen : false,
       userid : "",
       passwd : "",
+      currentPage: 1,
+      totalPages: 2,
     };
   },
   components :{
@@ -90,9 +92,11 @@ export default {
     hasNotices() {
       return this.$store.getters.hasNotices; // Vuex 스토어의 hasNotices getter 사용
     }
+
   },
   created() {
       this.$store.dispatch('fetchNotices'); // 공지사항 데이터를 서버로부터 가져오기
+      
   },  
   methods: {
       closeModal(){
