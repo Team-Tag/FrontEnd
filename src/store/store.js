@@ -8,7 +8,6 @@ import {createStore} from 'vuex'
 const store = createStore({
   state:{
     notices: [],
-    currentPage: 1,
     totalPages: 0,
   },
   mutations: {
@@ -23,7 +22,7 @@ const store = createStore({
   actions: {
     fetchNotices({ commit }, page) {
       // 서버로부터 공지사항 데이터를 가져오는 비동기 작업
-      axios.get(`/api/notice/list?page=${page-1}`)
+      axios.get(`/api/notice/list/${page-1}`)
         .then(response => {
           commit('setNotices', response.data); // 받아온 데이터를 스토어에 저장
         })
