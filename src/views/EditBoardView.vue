@@ -21,7 +21,15 @@
                 <p style = "font-size : 18px">파일</p>
                 <input type = "file" name="image" @change="onFileChange"> 
             </div>
-            <div class="submitBox">
+            <div v-if="idCheck(this.noticeId)" class = "editBox">
+              <div class="submitBox">
+                <button class="submit" @click="deleteData">삭제</button>
+              </div>
+              <div class="submitBox">
+                <button class="submit" @click="updateData">수정</button>
+              </div>
+            </div>
+            <div v-else class="submitBox" >
               <button class="submit" @click="uploadData">등록</button>
             </div>
         </div>
@@ -34,13 +42,19 @@
 import PageHeader from '@/components/Header.vue'
 import PageFooter from '@/components/Footer.vue'
 import axios from 'axios';
+
 export default {
   components :{
     PageHeader,
     PageFooter,
   },
+  created() {
+    this.noticeId = this.$route.params.id; // 라우터에서 현재 게시물 ID 가져오기
+    this.fetchBoardData(this.noticeId); // 서버로부터 해당 ID의 게시물 정보 가져오기
+  },
   data(){
     return {
+      noticeId : null,
       selectedFile : null,
       board:{
         title : '',
@@ -50,6 +64,24 @@ export default {
     };
   },
   methods: {
+    async fetchBoardData(noticeId) {
+      try {
+        if (noticeId) {
+          const response = await axios.get(`/api/notice/modify/${noticeId}`);
+          this.board = response.data;
+        } else {
+          // 새로운 게시물 작성 시에는 빈 입력 폼으로 시작합니다.
+          this.board = {
+            title: '',
+            contents: '',
+            link: '',
+          };
+        }
+      } catch (error) {
+        console.error('게시물 정보 가져오기 실패:', error.response.data);
+        alert('게시물 정보를 가져오는 중 에러가 발생했습니다. 다시 시도해주세요.');
+      }
+    },
       onFileChange(event){
         this.selectedFile = event.target.files[0];
       },
@@ -68,15 +100,56 @@ export default {
           const response = await axios.post(url, formData);
           console.log('서버 응답:',response.data);
           alert('게시물이 성공적으로 등록되었습니다.');
+          this.$router.push(`/Board`);
         }catch(error){
           console.error('에러 발생:',error.response.data);
           alert('게시물 등록 중 에러가 발생했습니다. 다시 시도해주세요.');
         }
       },
+      async deleteData(){
+        try{
+          const url = `/api/notice/deleteNotice/${this.noticeId}`
+          const id = this.noticeId;
+          const response = await axios.post(url,id);
+          console.log('서버 응답:',response.data);
+          alert('게시물이 성공적으로 삭제되었습니다.');
+          this.$router.push(`/Board`);
+        }catch(error){
+          console.error('삭제하는 과정에서 에러 발생:',error.response.data);
+          alert('삭제하던 중 에러가 발생했습니다. 다시 시도해주세요.');
+        }
+      },
+      async updateData(){
+        try{
+          const url = `/api/notice/updateNotice`;
+          const jsonData = {
+            title: this.board.title,
+            contents: this.board.contents,
+            link: this.board.link,
+            id : this.noticeId,
+          };
+
+          const formData = new FormData();
+          formData.append('jsonData', JSON.stringify(jsonData));
+          formData.append('image', this.selectedFile);
+
+          const response = await axios.post(url, formData);
+          console.log('서버 응답:',response.data);
+          alert('게시물이 성공적으로 수정되었습니다.');
+          this.$router.push(`/Board`);
+
+        }catch(error){
+          console.error('수정하는 과정에서 에러 발생:',error.response.data);
+          alert('수정하던 중 에러가 발생했습니다. 다시 시도해주세요.');
+        }
+      },   
+      idCheck(noticeId){
+        return noticeId !== null && noticeId !== undefined && noticeId !== "";
+      },
+      
   },
 };
 </script>
-
 <style scoped>
   .Board-Content{
       padding-top: 100px;
@@ -152,5 +225,8 @@ export default {
     align-items: flex-start;
     padding-right: 30px;
   }
-  
+  .editBox{
+    display: flex;
+    flex-direction: row-reverse;
+  }
 </style>

@@ -17,34 +17,38 @@
           </div>
         </div>
         <div class="board-body">
-          <img :src= "notice.imageUrl">
+          <img :src= "notice.imageUrl"  v-if= "checkData(notice.imagUrl)">
           <div class = "contents">
             <p v-html= "convertToHTML(notice.contents)"></p>
             <p v-if= "checkData(notice.link)">참고 링크 : <a :href="notice.link">{{notice.link}}</a></p>
           </div>
         </div>
+        
       </div>
       <div class = "EditPost">
-        <button @click="goToNoticeEdit(this.noticeId)">수정</button>
+          <button>수정</button>
       </div>
     </div>
+    
   </div>
   <PageFooter/>
 </template>
 <script>
 import PageHeader from '@/components/Header.vue'
 import PageFooter from '@/components/Footer.vue'
-import axios from 'axios';
 export default {
   data(){
     return{
-      notice : {}, //[]에서 {}로 바꿈
-      noticeId: null,
+       notice: {
+      title: "대단한 제목",
+      writeTime: "2023-07-31",
+      modifyTime: "2024-07-31",
+      viewCount: 20,
+      contents: "안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요 <br>날씨가 좋네요<br>안녕하세요 <br>날씨가 좋네요<br>안녕하세요 <br>날씨가 좋네요<br>안녕하세요 <br>날씨가 좋네요<br>안녕하세요 <br>날씨가 좋네요<br>",
+      imageUrl: "",
+      link: "https://studiomeal.com/archives/197",
+    },
     };
-  },
-  created() {
-    this.noticeId = this.$route.params.id; // 라우터에서 현재 게시물 ID 가져오기
-    this.fetchNoticeData(this.noticeId); // 서버로부터 해당 ID의 게시물 정보 가져오기
   },
   components :{
     PageHeader,
@@ -55,24 +59,10 @@ export default {
         // 개행 문자를 <br> 태그로 변환하여 반환
         return text.replace(/\n/g, '<br>');
     },
-     fetchNoticeData(noticeId) {
-      // 서버로부터 해당 ID의 게시물 정보를 요청하는 함수
-      axios.get(`/api/notice/${noticeId}`)
-        .then(response => {
-          this.notice = response.data; // 받아온 데이터를 notice 변수에 저장
-        })
-        .catch(error => {
-          console.error('Error fetching notice:', error);
-        });
-    },
-    //입력된 데이터가 빈데이터가 아니면 출력되게 하는 메소드
     checkData(data){
       return data !== null && data !== undefined && data !== "";
-    },
-    goToNoticeEdit(noticeId) {
-        this.$router.push(`/Board/EditBoard/${noticeId}`);
-        console.log(noticeId);
-    },
+    }
+
   }
     
 };
@@ -149,7 +139,7 @@ export default {
     text-align: left;
     width : 100%;
   }
-  .EditPost{
+    .EditPost{
     display: flex;
     flex-direction: row-reverse;
     margin-top: 10px;

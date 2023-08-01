@@ -1,57 +1,41 @@
-import { createStore } from 'vuex'
+// import Vue from 'vue';
+// import Vuex from 'vuex';
+import axios from 'axios';
+// Vue.use(Vuex);
+import {createStore} from 'vuex'
+// export default new Vuex.Store({
 
 const store = createStore({
   state:{
-    selectedCard:'',
-    clickCard:[],
-    countViewArticle_front:[
-      {view_count:0},
-      {view_count:0},
-      {view_count:0},
-      {view_count:0},
-      {view_count:0},
-      {view_count:0},
-      {view_count:0},
-      {view_count:0}
-      // vuex에서 카운트한 값이 새로고침하면 0으로 초기화를 했기때문에 다시 들어가면 0으로 됨 로컬 스토리지? 아니면 서버로 전송 필요
-
-  ],
-  countViewArticle_back:[
-    {view_count:0},
-    {view_count:0},
-    {view_count:0},
-    {view_count:0},
-    {view_count:0},
-    {view_count:0},
-    {view_count:0},
-    {view_count:0}
-    // vuex에서 카운트한 값이 새로고침하면 0으로 초기화를 했기때문에 다시 들어가면 0으로 됨 로컬 스토리지? 아니면 서버로 전송 필요
-
-]
-    
+    notices: [],
+    totalPages: 0,
   },
-  mutations: {//이걸로 상태 변경 이 아니고 여기는 비동기적인 로직을 구현하고자 할때 사용
-    VIEW_COUNT_UP_FRONT(state, index,) {
-      state.countViewArticle_front[index].view_count++;
+  mutations: {
+    setNotices(state, {noticeListDTOS, totalPages}) {
+      state.notices = noticeListDTOS;
+      state.totalPages = totalPages;
     },
-    VIEW_COUNT_UP_BACK(state, index,) {
-      state.countViewArticle_back[index].view_count++;
+    setCurrentPage(state, page) {
+      state.page = page;
     },
   },
-  actions: {//이거 호출
-    viewCountUpFront({commit},index){
-      commit('VIEW_COUNT_UP_FRONT',index);
-    },
-    viewCountUpBack({commit},index){
-      commit('VIEW_COUNT_UP_BACK',index);
+  actions: {
+    fetchNotices({ commit }, page) {
+      // 서버로부터 공지사항 데이터를 가져오는 비동기 작업
+      axios.get(`/api/notice/list/${page-1}`)
+        .then(response => {
+          commit('setNotices', response.data); // 받아온 데이터를 스토어에 저장
+        })
+        .catch(error => {
+          console.error('Error fetching notices:', error);
+        });
     }
   },
   getters: {
-    // 필요한 경우 나중에 getters를 추가할 수 있습니다.
+    hasNotices(state) {
+      return state.notices.length > 0; // 게시물이 있는지 여부를 확인하여 반환
+    }
     
-    
-  }
+  },
 });
-// this.$store.commit, this.$store.dispatch, this.$store.getters를 사용하여
-// mutations, actions, getters를 호출하고 상태를 관리할 수 있습니다.
 export default store;

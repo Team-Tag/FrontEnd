@@ -23,13 +23,16 @@
               <th>작성시간</th>
             </tr>
           </thead>
-          <tbody>
-            <tr v-for="notice in notices" :key="notice.id">
-              <td style = "width : 50px;">{{ notice.id }}</td>
-              <td style = "width : 400px;">{{ notice.title }}</td>
-              <td style = "width : 50px;">{{ notice.views }}</td>
-              <td style = "width : 150px;">{{ notice.createdAt }}</td>
+          <tbody v-if = "hasNotices">
+            <tr v-for="notice in notices" :key="notice.ID" @click="goToNoticeDetail(notice.ID)">
+                <td style = "width : 50px;">{{ notice.serialNum}}</td>
+                <td style = "width : 400px;">{{ notice.title }}</td>
+                <td style = "width : 50px;">{{ notice.viewCount }}</td>
+                <td style = "width : 150px;">{{ notice.writeTime }}</td>
             </tr>
+          </tbody>
+          <tbody v-else>
+            <td colspan="4">등록된 공지사항이 없습니다.</td>
           </tbody>
         </table>
         <!-- 페이지네이션 -->
@@ -55,8 +58,6 @@
 							<p>비밀번호</p>
 							<input type="password" name="passwd" v-model="passwd">
 							<button class = "submit-button" @click="submitLogin">로그인</button>
-							<div>
-							</div>
 						</div>					
 				</div>
 			</div>
@@ -64,66 +65,57 @@
   </div>
   <PageFooter/>
 </template>
+
+
 <script>
 import PageHeader from '@/components/Header.vue'
 import PageFooter from '@/components/Footer.vue'
-import axios from 'axios';
+
 export default {
   data() {
     return{
-      notices:[
-        { id: 1, title: "샘플 공지사항 1", views: 100, createdAt: "2023-07-28" },
-        { id: 2, title: "샘플 공지사항 2", views: 150, createdAt: "2023-07-27" },
-        { id: 3, title: "샘플 공지사항 3", views: 200, createdAt: "2023-07-26" },
-        { id: 4, title: "샘플 공지사항 4", views: 200, createdAt: "2023-07-25" },
-        { id: 5, title: "샘플 공지사항 5", views: 200, createdAt: "2023-07-24" },
-        { id: 6, title: "샘플 공지사항 6", views: 200, createdAt: "2023-07-23" },
-        { id: 7, title: "샘플 공지사항 7", views: 200, createdAt: "2023-07-22" },
-        { id: 8, title: "샘플 공지사항 8", views: 200, createdAt: "2023-07-21" },
-        { id: 9, title: "샘플 공지사항 9", views: 200, createdAt: "2023-07-20" },
-        { id: 10, title: "샘플 공지사항 10", views: 200, createdAt: "2023-07-19" },
-        { id: 111, title: "샘플 공지사항 11", views: 2000, createdAt: "2023-07-18" },
-      ],
-      currentPage: 1,
-      totalPages: 4,
       isModalOpen : false,
       userid : "",
       passwd : "",
+      page : 1,
     };
   },
   components :{
     PageHeader,
     PageFooter,
   },
+  computed : {
+    notices() {
+      return this.$store.state.notices;
+    },
+    hasNotices() {
+      return this.$store.getters.hasNotices; // Vuex 스토어의 hasNotices getter 사용
+    }
+
+  },
+  created() {
+      this.$store.dispatch('fetchNotices'); // 공지사항 데이터를 서버로부터 가져오기
+      
+  },  
   methods: {
-    fetchNotices(page) {
-      axios.get(`/api/notices?page=${page}`)
-        .then(response => {
-          this.notices = response.data.content;
-          this.totalPages = response.data.totalPages;
-        })
-        .catch(error => {
-          console.error('Error fetching notices:', error);
-        });
-      },
-      goToPage(page) {
-        this.currentPage = page;
-        this.fetchNotices(page);
-      },
       closeModal(){
         this.isModalOpen = false;
       },
       submitLogin(){
-      console.log("click");
         if(this.userid == "admin" && this.passwd == "1234"){
           this.$router.push('/Board/EditBoard');
         }
       },
+      goToNoticeDetail(noticeId) {
+        this.$router.push(`/Board/${noticeId}`);
+      },
+      goToPage(page) {
+      if (page >= 1 && page <= this.totalPages) {
+        this.page = page; // 현재 페이지 변경
+        this.$store.dispatch('fetchNotices', page); // 해당 페이지의 공지사항 데이터를 서버로부터 가져오기
+      }
     },
-    mounted() {
-        this.fetchNotices(this.currentPage);
-    },
-    
+  },
 };
 </script>
 
@@ -195,7 +187,6 @@ export default {
     background-color: white;
   }
   .pagination{
-    
     display: flex;
     justify-content: center;
     padding: 0;

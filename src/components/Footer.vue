@@ -35,7 +35,7 @@ export default {
     background-color: black;
     padding: 10px 20px 20px 20px;
     text-align: left;
-    opacity: 80%;
+    opacity: 50%;
   }
   .footer p{
     color : #9F9D9C;

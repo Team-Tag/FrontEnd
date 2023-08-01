@@ -6,6 +6,7 @@ import LoadMap from '../views/LoadMapView.vue'
 import Schedule from '../views/ScheduleView.vue'
 import FrontEnd from '../views/FrontEnd-LM.vue'
 import BackEnd from '../views/BackEnd-LM.vue'
+<<<<<<< HEAD
 import RoadmapArticle_Front from '../views/RoadmapArticle_Front.vue'
 import RoadmapArticle_Back from  '../views/RoadmapArticle_Back.vue'
 import ShowWorks from '../views/ShowWorks.vue'
@@ -14,6 +15,14 @@ import ArticleView from '../views/ArticleView.vue'
 import EditBoard2 from '../views/EditBoard2.vue'
 import EditBoard3 from '../views/EditBoard3.vue'
 import FrequentlyQuestion from '../views/FrequentlyQuestion.vue'
+=======
+import EditBoard from '../views/EditBoardView.vue'
+import ArticleView from '../views/ArticleView.vue'
+import RoadmapArticle_Front from '../views/RoadmapArticle_Front.vue'
+import RoadmapArticle_Back from  '../views/RoadmapArticle_Back.vue'
+import ShowWorks from '../views/ShowWorks.vue'
+import TestView from '../views/testView.vue'
+>>>>>>> origin/kim-branch
 const routes = [
   {
     path: '/',
@@ -31,9 +40,14 @@ const routes = [
     component : Board
   },
   {
-    path : '/Board/Article',
+    path : '/Board/:id',
     name : 'Article',
     component : ArticleView
+  },
+  {
+    path : '/Test',
+    name : 'Test',
+    component : TestView
   },
   {
     path : '/LoadMap',
@@ -51,6 +65,7 @@ const routes = [
     component : FrontEnd
   },
   {
+<<<<<<< HEAD
 
     path : '/LoadMap/FrontEnd/RoadmapArticle_Front',
     name : 'FrontRoadmapArticle',
@@ -59,6 +74,21 @@ const routes = [
     path : '/Board/EditBoard',
     name : 'EditBoard',
     component : EditBoard,
+=======
+    path : '/Board/EditBoard',
+    name : 'EditBoard',
+    component : EditBoard,
+  },
+  {
+    path : '/Board/EditBoard/:id',
+    name : 'EditBoardId',
+    component : EditBoard,
+  },
+  {
+    path : '/LoadMap/FrontEnd/RoadmapArticle_Front',
+    name : 'FrontRoadmapArticle',
+    component : RoadmapArticle_Front,
+>>>>>>> origin/kim-branch
 
   },
   {
@@ -67,17 +97,24 @@ const routes = [
     component : BackEnd
   },
   {
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/kim-branch
     path : '/LoadMap/BackEnd/RoadmapArticle_Back',
     name : 'BackendRoadmapArticle',
     component : RoadmapArticle_Back,
   },
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/kim-branch
   {
     path : '/Schedule',
     name : 'Schedule',
     component : Schedule
   },
+<<<<<<< HEAD
 
 
   {
@@ -95,6 +132,8 @@ const routes = [
     name : 'FrequentlyQuestion',
     component : FrequentlyQuestion
   },
+=======
+>>>>>>> origin/kim-branch
 
 ]
 

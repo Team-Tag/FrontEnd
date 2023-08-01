@@ -21,7 +21,7 @@
 
 import PageHeader from '@/components/Header.vue'
 import PageFooter from '@/components/Footer.vue'
-// import {mapState,mapMutations} from 'vuex'
+
 
 export default {
   components :{
@@ -30,6 +30,7 @@ export default {
   },
   data(){
     return{ //backend 배열로 새로 저장해야 함 
+
       card:[
         ],
     //     {title:'javascript',
@@ -90,8 +91,7 @@ export default {
         // index:7},
           // imageUrl:'',//이미지 url을 저장할 데이터 변수 
           // imageName:''//가져올 이미지 파일 명  .jpg
-      
-     
+    
     }
   },
   async mounted(){
@@ -106,23 +106,8 @@ export default {
     } catch (error) {
       console.log("에러: " + error);
     }
-    //  .then((response)=>{
-    //     this.card=response.data;
-    //     console.log("이거는 response.data")
-
-    //      console.log(response.data);
-    //     console.log("밑에는 this.card")
-    //     console.log(this.card);
-    //     console.log("성공적으로 데이터를 불러왔습니다.")
-    //  })
-    //  .catch((error)=>{
-    //   console.log("에러"+error);
-    //  })
-   }
-  //computed:{
-    // ...mapState(['viewCountUpBack'])//상태변화 시키는 mutation호출 
- // }
-  ,methods:{
+  },
+  methods:{
     //vuex의 mutations를 해당 컴포넌트의 methods 속성에 매핑 
     // ...mapMutations(['VIEW_COUNT_UP_BACK']),
 
@@ -165,13 +150,6 @@ import '@/assets/font.css';
     margin: 20px;
     margin-bottom: 30px;
    }
-  .RoadMap-router{
-    /* display: flex;
-    flex-wrap: wrap;
-    align-content: flex-start;
-    margin: 20px;
-    margin-bottom: 30px; */
-  }
   .RoadmapCard{
     width: 13vw;
     height: 250px;
@@ -197,6 +175,7 @@ import '@/assets/font.css';
   }
 
   .RoadmapCard p:visited { color:black; }
+
   .p1{
     color:black; 
   }
