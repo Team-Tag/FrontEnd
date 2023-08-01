@@ -159,10 +159,10 @@ export default {
 
         if (startMonth === endMonth && startYear === endYear) {
           // 시작일과 종료일의 달과 년도가 같은 경우
-          return `${parseInt(startMonth)}월 ${parseInt(startDay)}일부터 ${parseInt(endDay)}일까지`;
+          return `${parseInt(startMonth)}월 ${parseInt(startDay)}일~${parseInt(startMonth)}월 ${parseInt(endDay)}일까지`;
         } else {
           // 달과 년도가 다른 경우
-          return `${parseInt(startMonth)}월 ${parseInt(startDay)}일부터 ${parseInt(endMonth)}월 ${parseInt(endDay)}일까지`;
+          return `${parseInt(startMonth)}월 ${parseInt(startDay)}일~ ${parseInt(endMonth)}월 ${parseInt(endDay)}일까지`;
         }
       } else {
         // 단일 날짜인 경우
@@ -195,85 +195,107 @@ export default {
 </script>
 
 <style scoped>
-  .Schedule{padding-top: 100px;
+    .Schedule{padding-top: 100px;
 
-    background-color: #F2F2F2;
-    width : 100%;
-    height: 1300px;
+      background-color: #F2F2F2;
+      width : 100%;
+      height: 1300px;
+    }
+    
+  
+    .calendar-box{
+      margin-top: 20px;
+      display: flex;
+    }
+    .calendar{
+      border-radius: 20px 0px 0px 20px;
+      width: 50vw; height: 65vh;
+      margin-left: 15vw;
+      background-color: rgb(255, 255, 255);  
+    }
+
+  
+    .arrow-two{
+      display: flex;
+      justify-content: center;
+      align-content: center;
+      align-items: center;
+      margin-top: 15px;
+    }
+    .arrow-two h2{
+      display: inline-block;
+      width: 10vw;
+    }
+    table{
+      font-size: 30px;
+      margin: auto;
+      margin-top: 3vh;
+      justify-content: center;
+      align-content: center;
+      
+    }
+    td{
+      width: 90px;
+      height: 50px;
+    }
+    .event-date {
+    /* 이벤트 날짜에 대한 스타일을 지정하세요. 예: 이벤트 날짜는 굵은 글꼴(bold)로 표시 */
+      font-weight: bold;
+      font-size: 16px;
+      color: rgb(120, 118, 118); /* 예: 이벤트 날짜는 빨간색으로 표시 */
+    }
+
+  .regular-date {
+    /* 일반 날짜에 대한 스타일을 지정하세요. 예: 일반 날짜는 기본 글꼴(normal)로 표시 */
+    font-weight: normal;
+    
+    color: black; /* 예: 일반 날짜는 검정색으로 표시 */
   }
   
- 
-  .calendar-box{
-    margin-top: 20px;
-    display: flex;
-  }
-  .calendar{
-    width: 50vw; height: 65vh;
-    margin-left: 5vw;
-    background-color: rgb(216, 216, 216);  
-  }
-  .addEvent{
-    width: 40vw; height: 65vh;
-    margin-right: 5vw;
-    background-color:lightcyan;  
-  }
-  .arrow-two{
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
-  }
-  .arrow-two h2{
-    display: inline-block;
-    width: 10vw;
-  }
-  table{
-    font-size: 30px;
-    margin: auto;
-    margin-top: 3vh;
-    justify-content: center;
+  ul{
+    width:30vw;
+    /* height:vh; */
+    padding:0px;
+    font-size: 20px;
+    /* margin-bottom: 10px; */
+    margin-left: 0px;
     align-content: center;
     
+    /* background-color:turquoise; */
   }
-  td{
-   width: 90px;
-   height: 50px;
-  }
-   .event-date {
-  /* 이벤트 날짜에 대한 스타일을 지정하세요. 예: 이벤트 날짜는 굵은 글꼴(bold)로 표시 */
-  font-weight: bold;
-  font-size: 16px;
-  color: rgb(120, 118, 118); /* 예: 이벤트 날짜는 빨간색으로 표시 */
-}
 
-.regular-date {
-  /* 일반 날짜에 대한 스타일을 지정하세요. 예: 일반 날짜는 기본 글꼴(normal)로 표시 */
-  font-weight: normal;
-  
-  color: black; /* 예: 일반 날짜는 검정색으로 표시 */
-}
-ul{
-  font-size: 20px;
-  margin-top: 10px;
-  align-content: center;
-  height:100px;
- 
-}
-li{
-  line-height: 20px;
-  list-style: none;
-  float: left;
-  
-  /* width: 100%;
-  height: 7vh;
-  text-align: center;
-  align-content: center; */
-  
-}
-.addEvent span:last-child{
-  margin-left: 10px;
-  display: inline-block;
-  width: 300px;
-  text-align: left;
-}
+    .addEvent{
+      width: 20vw; height: 65vh;
+      margin-right: 5vw;
+      background-color: rgb(235, 235, 231);
+      border-radius: 0px 20px 20px 0px;
+
+    }
+    .addEvent li{
+      line-height: 20px;
+      list-style: none;
+      float: left;
+      margin-top: 20px;
+    }
+    .addEvent li:first-child{
+      width: 18vw;
+      
+      
+    }
+    .addEvent span{
+      display: inline-block;
+      width: 200px;
+      border-radius: 8px;
+      font-size: 17px;
+    
+    }
+  .addEvent span:first-child{
+    width: 190px;
+    background-color: gainsboro;
+  }
+  .addEvent span:last-child{
+    margin-top: 10px;
+    margin-left: 10px;
+    text-align: center;
+  }
 </style>
