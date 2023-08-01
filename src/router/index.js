@@ -13,6 +13,7 @@ import ShowWorks from '../views/ShowWorks.vue'
 import ArticleView from '../views/ArticleView.vue'
 import FrequentlyQuestion from '../views/FrequentlyQuestion.vue'
 import EditBoard from '../views/EditBoardView.vue'
+import TestView from '../views/TestView.vue'
 const routes = [
   {
     path: '/',
@@ -55,6 +56,11 @@ const routes = [
     component : RoadmapArticle_Front,  
   },
   {
+    path : '/Board/EditBoard',
+    name : 'EditBoard',
+    component : EditBoard,
+  },
+  {
     path : '/Board/EditBoard/:id',
     name : 'EditBoardId',
     component : EditBoard,
@@ -79,6 +85,11 @@ const routes = [
     name : 'FrequentlyQuestion',
     component : FrequentlyQuestion
   },
+  {
+    path : '/Test',
+    name : 'Test',
+    component : TestView
+  }
 ]
 const router = createRouter({
   history: createWebHashHistory(),

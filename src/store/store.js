@@ -9,7 +9,7 @@ const store = createStore({
   state:{
     notices: [],
     totalPages: 0,
-    searchCategory: '',
+    searchCategory: '전체',
     searchKeyword: '',
   },
   mutations: {

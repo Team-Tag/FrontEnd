@@ -63,9 +63,22 @@
           CSS, JavaScript 등을 통해 웹(WEB)프로그램 제작 및 설계 과정을 학습합니다. 
           씨애랑에서 제공하는 다양한 커리큘럼을 통해 프론트 엔드 및 백엔드 역량을 강화할 수 있습니다</p>
         </div>
-        <div class = "screen3-item2"> 
-            
-        </div>
+          <swiper
+            :slidesPerView="'auto'"
+            :centeredSlides="true"
+            :spaceBetween="30"
+            :pagination="{
+              clickable: true,
+            }"
+            :modules="modules"
+            class="mySwiper"
+          >
+            <swiper-slide>Slide 1</swiper-slide>
+            <swiper-slide>Slide 2</swiper-slide><swiper-slide>Slide 3</swiper-slide>
+            <swiper-slide>Slide 4</swiper-slide><swiper-slide>Slide 5</swiper-slide>
+            <swiper-slide>Slide 6</swiper-slide><swiper-slide>Slide 7</swiper-slide>
+            <swiper-slide>Slide 8</swiper-slide><swiper-slide>Slide 9</swiper-slide>
+          </swiper>
       </div>
     </section>
     <section class="screen4" ref = "s4">
@@ -89,19 +102,36 @@
 <script>
 import PageHeader from '@/components/Header.vue'
 import PageFooter from '@/components/Footer.vue'
+import { Swiper, SwiperSlide } from 'swiper/vue';
+  // Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/pagination';
+import { Pagination } from 'swiper/modules';
+
 export default {
   name: 'HomeView',
   components: {
     PageHeader,
     PageFooter,
+    Swiper,
+    SwiperSlide,
   },
   data(){
     return{
       activeSection: 's1',
     }
   },
+  setup() {
+    return {
+      modules: [Pagination],
+    };
+  },
   mounted() {
     window.addEventListener('scroll', this.handleScroll);
+    new Swiper('.swiper-container', {
+      centeredSlides: true, // 슬라이드를 가운데로 정렬
+      slidesPerView: 'auto', // 자동으로 슬라이드 개수를 조절하여 가운데 정렬
+    });
   },
   beforeUnmount() {
     // 컴포넌트가 파기되기 전에 스크롤 이벤트 리스너 해제
@@ -437,5 +467,41 @@ export default {
   line-height: 1.6;
 }
 
+/*swiper css 코드*/
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.swiper-slide {
+  width: 60%;
+}
+
+.swiper-slide:nth-child(2n) {
+  width: 40%;
+}
+
+.swiper-slide:nth-child(3n) {
+  width: 20%;
+}
 </style>
 
