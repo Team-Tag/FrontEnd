@@ -141,7 +141,13 @@ export default {
 };
 </script>
 <style scoped lang="scss">
-
+  .content__container__list{
+    display: inline-block;
+    
+  }
+  .content__container{
+    height: 50px
+  }
   .home{
     width: 100%;
     display: flex;
@@ -280,20 +286,20 @@ export default {
 .content {
   position: absolute;
   top: 50%;
-  left: 50%;
+  left: 53%;
   transform: translate(-50%, -40%);
   height: 160px;
   overflow:hidden;
   
   font-family: 'Lato', sans-serif;
-  font-size: 35px;
-  line-height: 40px;
+  font-size: 60px;
+  line-height: 100px;
   color: #ecf0f1;
   
   &__container {
     font-weight: 600;
     overflow: hidden;
-    height: 40px;
+    height: 100px;
     padding: 0 40px;
 
     &:before {
@@ -312,8 +318,8 @@ export default {
       top: 0;
       
       color: #16a085;
-      font-size: 42px;
-      line-height: 40px;
+      font-size: 60px;
+      line-height: 100px;
       
       -webkit-animation-name: opacity;
       -webkit-animation-duration: 2s;
@@ -331,7 +337,7 @@ export default {
 
     &__list {
       margin-top: 0;
-      padding-left: 110px;
+      padding-left: 30px;
       text-align: left;
       list-style: none;
       
@@ -343,7 +349,7 @@ export default {
       animation-iteration-count: infinite;
 
       &__item {
-        line-height:40px;
+        line-height:100px;
         margin:0;
       }
     }
