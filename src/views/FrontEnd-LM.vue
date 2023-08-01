@@ -18,8 +18,7 @@
 <script>
 import PageHeader from '@/components/Header.vue'
 import PageFooter from '@/components/Footer.vue'
-import '@/assets/font.css'
-// import {mapState,mapMutations} from 'vuex'
+/// import {mapState,mapMutations} from 'vuex'
 
 export default {
   components :{
@@ -69,8 +68,7 @@ export default {
 </script>
 
 <style scoped>
-*{font-family: 'NeoDunggeunmoPro-Regular';}
-  .RoadMap{
+ .RoadMap{
     background-color: #F2F2F2;
     width : 100%;
     height: 1524px;
