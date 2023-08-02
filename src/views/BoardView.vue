@@ -80,6 +80,7 @@ export default {
       userid : "",
       passwd : "",
       page : 1,
+      selectSerch:""//백에 넘길 선택한 값 
     };
   },
   components :{

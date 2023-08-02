@@ -64,7 +64,7 @@
           </p>
         </div>
         <div class = "screen3-item2"> 
-          <div class="slides">
+          <div class="slides2">
             <div class="card">
               <img src="@/assets/신입생교육.jpeg">
               <div class="card-contents">
@@ -102,10 +102,72 @@
       <div class="screen-content">
         <div class = "screen-item">
           <h2>때로는 놀기도 하는!</h2>
-          <p>선/후배 간의 친목을 다지기 위해 때로는 회식과 미니게임과 같은 활동으로 </p>
+          <p>선/후배 간의 친목을 다지기 위해 때로는 회식과 미니게임과 같은 활동으로 분위기를 띄우기도 합니다! </p>
         </div>
         <div class = "screen4-item2"> 
-          <!-- 슬라이더 -->
+          <ul class="slides">
+    <input type="radio" name="radio-btn" id="img-1" checked />
+    <li class="slide-container">
+		<div class="slide">
+			<img src="@/assets/노는2.jpg" />
+        </div>
+		<div class="nav">
+			<!-- <label for="img-6" class="prev">&#x2039;</label> -->
+			<label for="img-2" class="next">&#x203a;</label>
+		</div>
+    </li>
+
+    <input type="radio" name="radio-btn" id="img-2" />
+    <li class="slide-container">
+        <div class="slide">
+			<img src="@/assets/노는1.jpg" />
+        </div>
+		<div class="nav">
+			<label for="img-1" class="prev">&#x2039;</label>
+			<label for="img-3" class="next">&#x203a;</label>
+		</div>
+    </li>
+
+    <input type="radio" name="radio-btn" id="img-3" />
+    <li class="slide-container">
+        <div class="slide">
+			<img src="@/assets/노는3.jpg" />
+        </div>
+		<div class="nav">
+			<label for="img-2" class="prev">&#x2039;</label>
+			<label for="img-4" class="next">&#x203a;</label>
+		</div>
+    </li>
+
+    <input type="radio" name="radio-btn" id="img-4" />
+    <li class="slide-container">
+        <div class="slide">
+			<img src="@/assets/노는4.jpg" />
+        </div>
+		<div class="nav">
+			<label for="img-3" class="prev">&#x2039;</label>
+			<label for="img-5" class="next">&#x203a;</label>
+		</div>
+    </li>
+
+    <input type="radio" name="radio-btn" id="img-5" />
+    <li class="slide-container">
+        <div class="slide">
+			<img src="@/assets/노는5.jpg" />
+        </div>
+		<div class="nav">
+			<label for="img-4" class="prev">&#x2039;</label>
+		</div>
+    </li>
+    <li class="nav-dots">
+      <label for="img-1" class="nav-dot" id="img-dot-1"></label>
+      <label for="img-2" class="nav-dot" id="img-dot-2"></label>
+      <label for="img-3" class="nav-dot" id="img-dot-3"></label>
+      <label for="img-4" class="nav-dot" id="img-dot-4"></label>
+      <label for="img-5" class="nav-dot" id="img-dot-5"></label>
+      <label for="img-6" class="nav-dot" id="img-dot-6"></label>
+    </li>
+</ul>
         </div>
       </div>
       </div>
@@ -168,6 +230,13 @@ export default {
 };
 </script>
 <style scoped lang="scss">
+   .content__container__list{
+    display: inline-block;
+    
+  }
+  .content__container{
+    height: 50px
+  }
   .home{
     width: 100%;
     display: flex;
@@ -273,8 +342,9 @@ export default {
     align-items: center;
     margin-left: 300px;
   }
+  
   .screen-content .screen-item{
-    margin : 20px 20px 20px 20px;
+    margin : 20px 70px 20px 20px;
     height: 40vh;
   }
   .screen-item h2{
@@ -290,7 +360,7 @@ export default {
     width : 50vh;
   }
   .screen-content .screen2-item2{
-    margin: 20px;
+    margin-left: 20px;
   }
   .screen3 .screen-item{
     margin-right: 50px;
@@ -299,6 +369,9 @@ export default {
     width: 700px;
     height: 400px;
    
+  }
+  .screen-item{
+    margin-left: 40px;
   }
   video{
     width : 100vw;
@@ -309,20 +382,20 @@ export default {
 .content {
   position: absolute;
   top: 50%;
-  left: 50%;
+  left: 53%;
   transform: translate(-50%, -40%);
   height: 160px;
   overflow:hidden;
   
   font-family: 'Lato', sans-serif;
-  font-size: 35px;
-  line-height: 40px;
+  font-size: 60px;
+  line-height: 100px;
   color: #ecf0f1;
   
   &__container {
     font-weight: 600;
     overflow: hidden;
-    height: 40px;
+    height: 100px;
     padding: 0 40px;
 
     &:before {
@@ -341,8 +414,8 @@ export default {
       top: 0;
       
       color: #16a085;
-      font-size: 42px;
-      line-height: 40px;
+      font-size: 60px;
+      line-height: 100px;
       
       -webkit-animation-name: opacity;
       -webkit-animation-duration: 2s;
@@ -360,7 +433,7 @@ export default {
 
     &__list {
       margin-top: 0;
-      padding-left: 110px;
+      padding-left: 30px;
       text-align: left;
       list-style: none;
       
@@ -372,7 +445,7 @@ export default {
       animation-iteration-count: infinite;
 
       &__item {
-        line-height:40px;
+        line-height:100px;
         margin:0;
       }
     }
@@ -434,10 +507,117 @@ export default {
   66.64%,79.3% {transform:translate3d(0,-50%,0);}
   83.3%,95.96% {transform:translate3d(0,-25%,0);}
 }
+/* screen4 item2*/
+.slides {
+    padding: 0;
+    width: 609px;
+    height: 420px;
+    display: block;
+    margin: 0 auto;
+    position: relative;
+}
 
+.slides * {
+    user-select: none;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+}
+
+.slides input { display: none; }
+
+.slide-container { display: block; }
+
+.slide {
+    top: 0;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    transform: scale(0);
+    transition: all .7s ease-in-out;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+}
+.nav{
+  width: 120%;
+}
+.nav label {
+    width: 20%;
+    height: 100%;
+    display: none;
+    position: absolute;
+    opacity:0;
+    z-index:9;
+    cursor:pointer;
+    transition: opacity .2s;
+    color: #FFF;
+    font-size: 156pt;
+    text-align: center;
+    line-height: 380px;
+    font-family: "Varela Round", sans-serif;
+    background-color: rgba(255, 255, 255, .3);
+    text-shadow: 0px 0px 15px rgb(119, 119, 119);
+}
+
+.slide:hover + .nav label { opacity: 0.5; }
+
+.nav label:hover { opacity: 1; }
+
+.nav .next { right: 0; }
+
+input:checked + .slide-container  .slide {
+    opacity: 1;
+
+    transform: scale(1);
+
+    transition: opacity 1s ease-in-out;
+}
+
+input:checked + .slide-container .nav label { display: block; }
+
+.nav-dots {
+	width: 100%;
+	bottom: 9px;
+	height: 11px;
+	display: block;
+	position: absolute;
+	text-align: center;
+}
+
+.nav-dots .nav-dot {
+	top: -5px;
+	width: 11px;
+	height: 11px;
+	margin: 0 4px;
+	position: relative;
+	border-radius: 100%;
+	display: inline-block;
+	background-color: rgba(0, 0, 0, 0.6);
+}
+
+.nav-dots .nav-dot:hover {
+	cursor: pointer;
+	background-color: rgba(0, 0, 0, 0.8);
+}
+
+input#img-1:checked ~ .nav-dots label#img-dot-1,
+input#img-2:checked ~ .nav-dots label#img-dot-2,
+input#img-3:checked ~ .nav-dots label#img-dot-3,
+input#img-4:checked ~ .nav-dots label#img-dot-4,
+input#img-5:checked ~ .nav-dots label#img-dot-5,
+input#img-6:checked ~ .nav-dots label#img-dot-6 {
+	background: rgba(0, 0, 0, 0.8);
+}
 
 /*슬라이더*/
-.slides {
+.slides2 {
   display:grid;
   gap:1rem;
   grid-auto-flow:column;
@@ -463,11 +643,11 @@ export default {
 .card-contents .card-date{
   font-size : 20px;
 }
-.slides::-webkit-scrollbar {
+.slides2::-webkit-scrollbar {
   display: none;
 }
 
-.slides img {
+.slides2 img {
 /*   scroll-snap이 달라붙는 item 기준 start, end, center */
   scroll-snap-align: start;
   width: 400px;
