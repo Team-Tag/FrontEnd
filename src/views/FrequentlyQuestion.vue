@@ -42,9 +42,7 @@
 </span> <i class="fa-solid fa-sort-down"></i></div>
                 <div class="desc">보통 2학기 기말고사 쯤에 진행됩니다. 시험과 동시에 준비하다 보면 바빠질 수 있으니, 팀원들과 미리미리 준비하시는게 
 꿀팁입니다!</div>
-            </li>
-           
-             
+            </li> 
              <li :class="{'on': activeIndex === 7}" @click="toggleAccordion(7)">
                 <div class="title"><span>신규부원 모집은 언제하나요?</span> <i class="fa-solid fa-sort-down"></i></div>
                 <div class="desc">태그팀 신규 부원 모집은 5월초에 이루어 집니다. 하지만, 구체적인 일정은 조직의 상황에 따라 달라질 수 있으므로, 정확한 정보는 조직의 공식 안내나 공지를 참조해야 합니다.</div>

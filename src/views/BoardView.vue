@@ -6,11 +6,11 @@
         <h2>&#60;공지사항&#47;&#62;</h2>
       </div>
       <div class = "search">
-        <select name = "category">
-          <option value="title">제목</option>
-          <option value="container">내용</option>
+        <select v-model="selectSerch" name = "category">
+          <option value="searh_title">제목</option>
+          <option value="searh_content">내용</option>
         </select>
-        <input type = "text" placeholder="검색어 입력">
+        <input type = "text" placeholder="검색어 입력" @input="sendText(value)">
         <button>검색</button>
       </div>
       <div class = "board-item">
@@ -79,6 +79,7 @@ export default {
       userid : "",
       passwd : "",
       page : 1,
+      selectSerch:""//백에 넘길 선택한 값 
     };
   },
   components :{
@@ -117,6 +118,9 @@ export default {
           this.$store.dispatch('fetchNotices', this.page); // 해당 페이지의 공지사항 데이터를 서버로부터 가져오기
         // }
     },
+    sendText(value){
+      console.log(value)
+    }
   },
 };
 </script>
