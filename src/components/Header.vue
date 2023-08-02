@@ -53,7 +53,7 @@
                     <div :class= "isHomePage ? 'home-menu-icon' :'menu-icon'">
                         <img src = "@/assets/Q&A.svg">
                     </div>
-                    <span>Q&A</span>
+                    <span>FAQ</span>
                 </router-link>
             </div>
         </div>
