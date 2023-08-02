@@ -6,12 +6,14 @@
         <h2>&#60;공지사항&#47;&#62;</h2>
       </div>
       <div class = "search">
-        <select v-model="selectSerch" name = "category">
-          <option value="searh_title">제목</option>
-          <option value="searh_content">내용</option>
+
+        <select name = "category" v-model="category">
+          <option value="" selected>전체</option>
+          <option value="searchTitle" selected>제목</option>
+          <option value="searchContainer">내용</option>
         </select>
-        <input type = "text" placeholder="검색어 입력" @input="sendText(value)">
-        <button>검색</button>
+        <input type = "text" placeholder="검색어 입력" v-model="keyword">
+        <button @click="goToSearch()">검색</button>
       </div>
       <div class = "board-item">
         <table>
@@ -70,7 +72,7 @@
 <script>
 import PageHeader from '@/components/Header.vue'
 import PageFooter from '@/components/Footer.vue'
-import { mapGetters } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 
 export default {
   data() {
@@ -94,7 +96,7 @@ export default {
       return this.$store.getters.hasNotices; // Vuex 스토어의 hasNotices getter 사용
     },
     ...mapGetters(['getTotalPages']),
-
+    ...mapGetters(['getKeyword', 'getCategory']),
   },
   created() {
       this.$store.dispatch('fetchNotices'); // 공지사항 데이터를 서버로부터 가져오기
@@ -113,14 +115,20 @@ export default {
         this.$router.push(`/Board/${noticeId}`);
       },
       goToPage(page){
-        // if (page >= 1 && page <= this.totalPages) {
-          this.page = page; // 현재 페이지 변경
-          this.$store.dispatch('fetchNotices', this.page); // 해당 페이지의 공지사항 데이터를 서버로부터 가져오기
-        // }
-    },
-    sendText(value){
-      console.log(value)
-    }
+
+        this.page = page; // 현재 페이지 변경
+        this.$store.dispatch('fetchNotices', this.page); // 해당 페이지의 공지사항 데이터를 서버로부터 가져오기
+      },
+      goToSearch() {
+        // 버튼을 누를 때 키워드와 카테고리를 스토어에 저장
+        this.$store.commit('setSearchKeyword', this.keyword);
+        console.log("goToSearch : setSearchKeyword :  " + this.keyword);
+        this.$store.commit('setSearchCategory', this.category);
+        console.log("goToSearch : setSearchCategory : " + this.category);
+        this.$store.dispatch('fetchNotices', this.page); 
+        // 추가로 다른 동작을 수행하거나 검색 결과 페이지로 이동할 수 있음
+      },
+      ...mapActions(['setKeyword', 'setCategory']),
   },
 };
 </script>

@@ -53,26 +53,22 @@
                     <div :class= "isHomePage ? 'home-menu-icon' :'menu-icon'">
                         <img src = "@/assets/Q&A.svg">
                     </div>
-                    <span>Q&A</span>
+                    <span>FAQ</span>
                 </router-link>
             </div>
         </div>
     </header> 
-
 </template>
-
 <script>
 
 export default{
     name: 'PageHeader',
-
     computed: {
         isHomePage() {
             // 현재 페이지가 홈 페이지인지 확인
             return this.$route.path === '/';
             },
     },
-
 };
 </script>
 

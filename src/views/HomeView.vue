@@ -30,7 +30,6 @@
           <p class="content__container__text">
             우리는
           </p>
-          
           <ul class="content__container__list">
             <li class="content__container__list__item">Team</li>
             <li class="content__container__list__item">Tag</li>
@@ -62,11 +61,39 @@
           <p style="font-size:20px">'Tag'팀은 신입생 교육, 개인 공부 등으로 실력을 쌓은 후, 하계 방학 워크샵에서 개인 또는 팀 프로젝트를 진행합니다.
             또한 하계 방학 워크샵애서는 소프트웨어 전시회를 준비하기 위해 팀 구성, 계획을 하며 워크샵 마지막에는 씨애랑 자체 해커톤을 
             진행하여 개인 역량을 가오하 할 수 있습니다.
-
           </p>
         </div>
         <div class = "screen3-item2"> 
-          <!-- 슬라이더 -->
+          <div class="slides2">
+            <div class="card">
+              <img src="@/assets/신입생교육.jpeg">
+              <div class="card-contents">
+                <p class = "card-title">신입생교육</p>
+                <p class = "card-date">3월 20일 ~ 4월 12일</p>
+              </div>
+            </div>
+            <div class="card">
+              <img src="@/assets/팀교육.jpeg">
+              <div class="card-contents">
+                <p class = "card-title">팀교육</p>
+                <p class = "card-date">5월 01일 ~ 5월 26일</p>
+              </div>
+            </div>
+            <div class="card">
+              <img src="@/assets/하계워크샵.jpeg">
+               <div class="card-contents">
+                <p class = "card-title">하계워크샵</p>
+                <p class = "card-date">7월 03일 ~ 7월 28일</p>
+              </div>
+            </div>
+            <div class="card">
+              <img src="@/assets/해커톤.jpeg">
+               <div class="card-contents">
+                <p class = "card-title">해커톤</p>
+                <p class = "card-date">7월 31일 ~ 8월 2일</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -130,21 +157,8 @@
         </div>
 		<div class="nav">
 			<label for="img-4" class="prev">&#x2039;</label>
-			<!-- <label for="img-6" class="next">&#x203a;</label> -->
 		</div>
     </li>
-
-    <!-- <input type="radio" name="radio-btn" id="img-6" />
-    <li class="slide-container">
-        <div class="slide">
-          <img src="http://farm9.staticflickr.com/8195/8098750703_797e102da2_z.jpg" />
-        </div>
-		<div class="D">
-			<label for="img-5" class="prev">&#x2039;</label>
-			<label for="img-1" class="next">&#x203a;</label>
-		</div> 
-    </li>-->
-
     <li class="nav-dots">
       <label for="img-1" class="nav-dot" id="img-dot-1"></label>
       <label for="img-2" class="nav-dot" id="img-dot-2"></label>
@@ -216,8 +230,7 @@ export default {
 };
 </script>
 <style scoped lang="scss">
-
-  .content__container__list{
+   .content__container__list{
     display: inline-block;
     
   }
@@ -229,7 +242,7 @@ export default {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    overflow-x:hidden;
+    overflow-x: hidden ;
   }
   section{
     width : 100vw;
@@ -348,6 +361,9 @@ export default {
   }
   .screen-content .screen2-item2{
     margin-left: 20px;
+  }
+  .screen3 .screen-item{
+    margin-right: 50px;
   }
   .screen2-item2 img{
     width: 700px;
@@ -491,11 +507,7 @@ export default {
   66.64%,79.3% {transform:translate3d(0,-50%,0);}
   83.3%,95.96% {transform:translate3d(0,-25%,0);}
 }
-
-@import url(https://fonts.googleapis.com/css?family=Varela+Round);
-
-html, body { background: #333 url("https://codepen.io/images/classy_fabric.png"); }
-
+/* screen4 item2*/
 .slides {
     padding: 0;
     width: 609px;
@@ -521,13 +533,11 @@ html, body { background: #333 url("https://codepen.io/images/classy_fabric.png")
 .slide {
     top: 0;
     opacity: 0;
-    width: 609px;
-    height: 420px;
+    width: 100%;
+    height: 100%;
     display: block;
     position: absolute;
-
     transform: scale(0);
-
     transition: all .7s ease-in-out;
 }
 
@@ -605,5 +615,42 @@ input#img-5:checked ~ .nav-dots label#img-dot-5,
 input#img-6:checked ~ .nav-dots label#img-dot-6 {
 	background: rgba(0, 0, 0, 0.8);
 }
-</style>
 
+/*슬라이더*/
+.slides2 {
+  display:grid;
+  gap:1rem;
+  grid-auto-flow:column;
+  overflow-x: auto;
+  overscroll-behavior-x:contain;
+  scroll-snap-type:x mandatory;
+  scrollbar-width:none;
+  width:  45vw;
+  height: 50vh;
+}
+.card{
+  box-shadow: 10px 5px 10px black;
+  background-color: white;
+}
+.card-contents{
+  padding: 15px;  
+}
+.card-contents .card-title{
+  font-size : 25px;
+  font-weight: 600;
+  
+}
+.card-contents .card-date{
+  font-size : 20px;
+}
+.slides2::-webkit-scrollbar {
+  display: none;
+}
+
+.slides2 img {
+/*   scroll-snap이 달라붙는 item 기준 start, end, center */
+  scroll-snap-align: start;
+  width: 400px;
+  height:350px;
+}
+</style>

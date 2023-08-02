@@ -47,6 +47,7 @@ export default {
       //  ,index:index.index 
     },
     }
+
 };
 </script>
 

@@ -6,12 +6,13 @@ import LoadMap from '../views/LoadMapView.vue'
 import Schedule from '../views/ScheduleView.vue'
 import FrontEnd from '../views/FrontEnd-LM.vue'
 import BackEnd from '../views/BackEnd-LM.vue'
-import EditBoard from '../views/EditBoardView.vue'
-import ArticleView from '../views/ArticleView.vue'
 import RoadmapArticle_Front from '../views/RoadmapArticle_Front.vue'
 import RoadmapArticle_Back from  '../views/RoadmapArticle_Back.vue'
 import ShowWorks from '../views/ShowWorks.vue'
+import ArticleView from '../views/ArticleView.vue'
 import FrequentlyQuestion from '../views/FrequentlyQuestion.vue'
+import EditBoard from '../views/EditBoardView.vue'
+import TestView from '../views/testView.vue'
 
 const routes = [
   {
@@ -34,7 +35,6 @@ const routes = [
     name : 'Article',
     component : ArticleView
   },
-
   {
     path : '/LoadMap',
     name : 'LoadMap',
@@ -54,12 +54,17 @@ const routes = [
     path : '/LoadMap/FrontEnd/RoadmapArticle_Front',
     name : 'FrontRoadmapArticle',
     component : RoadmapArticle_Front,  
-  },  
+  },
   {
-    path : '/Board/EditBoard/:id',
+    path : '/Board/EditBoard', //있어야됨 새게시글 작성
+    name : 'EditBoard',
+    component : EditBoard,
+  },
+  {
+    path : '/Board/EditBoard/:id', //있어야됨 수정 삭제 
     name : 'EditBoardId',
     component : EditBoard,
-  }, 
+  },
   {
     path : '/LoadMap/BackEnd',
     name : 'BackEnd',
@@ -70,18 +75,21 @@ const routes = [
     name : 'BackendRoadmapArticle',
     component : RoadmapArticle_Back,
   },
-
   {
     path : '/Schedule',
     name : 'Schedule',
     component : Schedule
   },
-
   {
     path : '/FrequentlyQuestion',
     name : 'FrequentlyQuestion',
     component : FrequentlyQuestion
   },
+  {
+    path : '/Test',
+    name : 'Test',
+    component : TestView
+  }
 ]
 const router = createRouter({
   history: createWebHashHistory(),

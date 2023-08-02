@@ -30,7 +30,6 @@
           <p class="content__container__text">
             우리는
           </p>
-          
           <ul class="content__container__list">
             <li class="content__container__list__item">Team</li>
             <li class="content__container__list__item">Tag</li>
@@ -64,7 +63,36 @@
           씨애랑에서 제공하는 다양한 커리큘럼을 통해 프론트 엔드 및 백엔드 역량을 강화할 수 있습니다</p>
         </div>
         <div class = "screen3-item2"> 
-            
+          <div class="slides">
+            <div class="card">
+              <img src="@/assets/신입생교육.jpeg">
+              <div class="card-contents">
+                <p class = "card-title">신입생교육</p>
+                <p class = "card-date">3월 20일 ~ 4월 12일</p>
+              </div>
+            </div>
+            <div class="card">
+              <img src="@/assets/팀교육.jpeg">
+              <div class="card-contents">
+                <p class = "card-title">팀교육</p>
+                <p class = "card-date">5월 01일 ~ 5월 26일</p>
+              </div>
+            </div>
+            <div class="card">
+              <img src="@/assets/하계워크샵.jpeg">
+               <div class="card-contents">
+                <p class = "card-title">하계워크샵</p>
+                <p class = "card-date">7월 03일 ~ 7월 28일</p>
+              </div>
+            </div>
+            <div class="card">
+              <img src="@/assets/해커톤.jpeg">
+               <div class="card-contents">
+                <p class = "card-title">해커톤</p>
+                <p class = "card-date">7월 31일 ~ 8월 2일</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -89,6 +117,7 @@
 <script>
 import PageHeader from '@/components/Header.vue'
 import PageFooter from '@/components/Footer.vue'
+
 export default {
   name: 'HomeView',
   components: {
@@ -135,6 +164,7 @@ export default {
           this.activeSection = 's1';
         }
     },
+    
 
   }
 };
@@ -145,7 +175,7 @@ export default {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    
+    overflow-x: hidden ;
   }
   section{
     width : 100vw;
@@ -263,6 +293,9 @@ export default {
   }
   .screen-content .screen2-item2{
     margin: 20px;
+  }
+  .screen3 .screen-item{
+    margin-right: 50px;
   }
   .screen2-item2 img{
     width: 700px;
@@ -404,38 +437,43 @@ export default {
   83.3%,95.96% {transform:translate3d(0,-25%,0);}
 }
 
-/* 슬라이더 */
-.card-container {
-  display: flex;
-  overflow-x: hidden;
+
+/*슬라이더*/
+.slides {
+  display:grid;
+  gap:1rem;
+  grid-auto-flow:column;
+  overflow-x: auto;
+  overscroll-behavior-x:contain;
+  scroll-snap-type:x mandatory;
+  scrollbar-width:none;
+  width:  45vw;
+  height: 50vh;
+}
+.card{
+  box-shadow: 10px 5px 10px black;
+  background-color: white;
+}
+.card-contents{
+  padding: 15px;  
+}
+.card-contents .card-title{
+  font-size : 25px;
+  font-weight: 600;
+  
+}
+.card-contents .card-date{
+  font-size : 20px;
+}
+.slides::-webkit-scrollbar {
+  display: none;
 }
 
-.card {
-  flex: 0 0 300px;
-  margin: 20px;
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
-  transition: transform 0.3s ease;
+.slides img {
+/*   scroll-snap이 달라붙는 item 기준 start, end, center */
+  scroll-snap-align: start;
+  width: 400px;
+  height:350px;
 }
-
-.card img {
-  max-width: 100%;
-  height: auto;
-}
-
-.card h3 {
-  font-size: 18px;
-  margin: 10px 0;
-}
-
-.card p {
-  font-size: 14px;
-  color: #666;
-  line-height: 1.6;
-}
-
 </style>
 
