@@ -30,7 +30,6 @@
           <p class="content__container__text">
             우리는
           </p>
-          
           <ul class="content__container__list">
             <li class="content__container__list__item">Team</li>
             <li class="content__container__list__item">Tag</li>
@@ -62,11 +61,39 @@
           <p style="font-size:20px">'Tag'팀은 신입생 교육, 개인 공부 등으로 실력을 쌓은 후, 하계 방학 워크샵에서 개인 또는 팀 프로젝트를 진행합니다.
             또한 하계 방학 워크샵애서는 소프트웨어 전시회를 준비하기 위해 팀 구성, 계획을 하며 워크샵 마지막에는 씨애랑 자체 해커톤을 
             진행하여 개인 역량을 가오하 할 수 있습니다.
-
           </p>
         </div>
         <div class = "screen3-item2"> 
-          <!-- 슬라이더 -->
+          <div class="slides">
+            <div class="card">
+              <img src="@/assets/신입생교육.jpeg">
+              <div class="card-contents">
+                <p class = "card-title">신입생교육</p>
+                <p class = "card-date">3월 20일 ~ 4월 12일</p>
+              </div>
+            </div>
+            <div class="card">
+              <img src="@/assets/팀교육.jpeg">
+              <div class="card-contents">
+                <p class = "card-title">팀교육</p>
+                <p class = "card-date">5월 01일 ~ 5월 26일</p>
+              </div>
+            </div>
+            <div class="card">
+              <img src="@/assets/하계워크샵.jpeg">
+               <div class="card-contents">
+                <p class = "card-title">하계워크샵</p>
+                <p class = "card-date">7월 03일 ~ 7월 28일</p>
+              </div>
+            </div>
+            <div class="card">
+              <img src="@/assets/해커톤.jpeg">
+               <div class="card-contents">
+                <p class = "card-title">해커톤</p>
+                <p class = "card-date">7월 31일 ~ 8월 2일</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -141,13 +168,12 @@ export default {
 };
 </script>
 <style scoped lang="scss">
-
   .home{
     width: 100%;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    overflow-x:hidden;
+    overflow-x: hidden ;
   }
   section{
     width : 100vw;
@@ -265,6 +291,9 @@ export default {
   }
   .screen-content .screen2-item2{
     margin: 20px;
+  }
+  .screen3 .screen-item{
+    margin-right: 50px;
   }
   .screen2-item2 img{
     width: 700px;
@@ -405,5 +434,43 @@ export default {
   66.64%,79.3% {transform:translate3d(0,-50%,0);}
   83.3%,95.96% {transform:translate3d(0,-25%,0);}
 }
-</style>
 
+
+/*슬라이더*/
+.slides {
+  display:grid;
+  gap:1rem;
+  grid-auto-flow:column;
+  overflow-x: auto;
+  overscroll-behavior-x:contain;
+  scroll-snap-type:x mandatory;
+  scrollbar-width:none;
+  width:  45vw;
+  height: 50vh;
+}
+.card{
+  box-shadow: 10px 5px 10px black;
+  background-color: white;
+}
+.card-contents{
+  padding: 15px;  
+}
+.card-contents .card-title{
+  font-size : 25px;
+  font-weight: 600;
+  
+}
+.card-contents .card-date{
+  font-size : 20px;
+}
+.slides::-webkit-scrollbar {
+  display: none;
+}
+
+.slides img {
+/*   scroll-snap이 달라붙는 item 기준 start, end, center */
+  scroll-snap-align: start;
+  width: 400px;
+  height:350px;
+}
+</style>
